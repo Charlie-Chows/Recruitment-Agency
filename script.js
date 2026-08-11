@@ -126,17 +126,36 @@ function initScrollAnimations() {
             ease: 'power3.out'
         });
     }
- // Reveal Job Cards
-    gsap.from('.job-card', {
-        scrollTrigger: {
-            trigger: '.jobs-grid',
-            start: 'top 80%'
-        },
-        y: 30,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.8
-    });
+    // Reveal Dashboard Items with staggered slide-right effect
+    if (document.querySelector('.dashboard-list')) {
+        gsap.from('.dash-item', {
+            scrollTrigger: {
+                trigger: '.dashboard-list',
+                start: 'top 85%'
+            },
+            x: -40,
+            opacity: 0,
+            stagger: 0.12,
+            duration: 0.85,
+            ease: 'back.out(1.2)'
+        });
+    }
+
+    // Reveal Job Cards with spring entrance
+    if (document.querySelector('.jobs-grid')) {
+        gsap.from('.job-card', {
+            scrollTrigger: {
+                trigger: '.jobs-grid',
+                start: 'top 85%'
+            },
+            y: 50,
+            scale: 0.94,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.9,
+            ease: 'back.out(1.4)'
+        });
+    }
     // Reveal Process Steps
     gsap.from('.process-step', {
         scrollTrigger: {

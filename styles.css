@@ -242,16 +242,12 @@ a {
     color: var(--primary);
 }
 
-/* Logo Image Filter Rule (Clean Black Tone for Header) */
-img[src*="logo_trimmed"] {
-    filter: brightness(0) saturate(100%) !important;
-}
-
 .header-logo-img {
     height: 36px;
     width: auto;
     display: block;
     object-fit: contain;
+    filter: brightness(0) saturate(100%) !important;
 }
 
 .footer-logo-img {
@@ -1084,14 +1080,13 @@ body.no-scroll {
     background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.08), transparent 80%);
 }
 
-/* --------------------------------------------------------------------------
-   7. SECTION 4: DASHBOARD PIPELINE
-   -------------------------------------------------------------------------- */
+/* Dashboard Card Container & Tab Pill Animations */
 .challenge-dashboard-container {
     padding: 2rem;
     border-radius: var(--radius-md);
     background: #FFFFFF;
     border: 1px solid var(--border-light);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
 }
 
 .dashboard-tabs {
@@ -1104,7 +1099,7 @@ body.no-scroll {
 }
 
 .dash-tab {
-    padding: 0.5rem 1.25rem;
+    padding: 0.6rem 1.35rem;
     background: none;
     border: 1px solid transparent;
     font-weight: 700;
@@ -1112,18 +1107,26 @@ body.no-scroll {
     border-radius: var(--radius-full);
     cursor: pointer;
     color: var(--text-secondary);
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dash-tab:hover {
+    color: var(--primary-purple);
+    background: var(--primary-purple-light);
+    transform: translateY(-2px);
 }
 
 .dash-tab.active {
-    background: var(--primary);
+    background: var(--primary-purple);
     color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.35);
+    transform: scale(1.05);
 }
 
 .dashboard-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.1rem;
 }
 
 .dash-item {
@@ -1136,16 +1139,57 @@ body.no-scroll {
     border: 1px solid var(--border-light);
     flex-wrap: wrap;
     gap: 1rem;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+}
+
+.dash-item:hover {
+    transform: translateX(8px) scale(1.01);
+    background: #FFFFFF;
+    border-color: var(--primary-purple);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.1);
+}
+
+.dash-item:hover .salary-tag {
+    background: var(--primary-purple);
+    color: #FFFFFF;
+    transform: scale(1.04);
 }
 
 .salary-tag {
     display: inline-block;
-    padding: 4px 12px;
+    padding: 6px 16px;
     background: #E0E7FF;
     color: #3730A3;
     font-weight: 700;
     font-size: 0.85rem;
     border-radius: var(--radius-full);
+    transition: all 0.3s ease;
+}
+
+.badge.in-progress {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #FEF3C7;
+    color: #D97706;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    animation: pulseBadge 2.5s infinite alternate;
+}
+
+.badge.completed {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #D1FAE5;
+    color: #059669;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+@keyframes pulseBadge {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.03); }
 }
 
 /* --------------------------------------------------------------------------
@@ -1209,7 +1253,7 @@ body.no-scroll {
 }
 
 /* --------------------------------------------------------------------------
-   9. SECTION 6: HOT CAREERS SLOMO BOUNCE
+   9. SECTION 6: HOT CAREERS (SLOMO JUMPY HOVER & SPOTLIGHT)
    -------------------------------------------------------------------------- */
 .jobs-grid {
     display: grid;
@@ -1222,25 +1266,50 @@ body.no-scroll {
     border: 1px solid var(--border-light);
     padding: 2rem;
     border-radius: var(--radius-md);
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .job-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.12);
+    animation: slomoBounceSpring 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    box-shadow: 0 22px 50px rgba(124, 58, 237, 0.18);
+    border-color: var(--primary-purple);
+}
+
+@keyframes slomoBounceSpring {
+    0% { transform: translateY(0) scale(1); }
+    35% { transform: translateY(-16px) scale(1.03); }
+    65% { transform: translateY(-6px) scale(1.01); }
+    85% { transform: translateY(-12px) scale(1.02); }
+    100% { transform: translateY(-10px) scale(1.02); }
+}
+
+.job-card:hover .salary-tag {
+    background: var(--primary-purple);
+    color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+.job-card:hover .btn-dark {
+    background: linear-gradient(135deg, var(--primary-purple), #3B82F6);
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.35);
+    transform: scale(1.05);
 }
 
 .job-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
 }
 
 .job-type {
     font-size: 0.75rem;
     font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    transition: var(--transition);
 }
 
 .job-type.remote { background: #DCFCE7; color: #15803D; }
@@ -1250,6 +1319,7 @@ body.no-scroll {
 .job-posted {
     font-size: 0.75rem;
     color: var(--text-muted);
+    font-weight: 600;
 }
 
 .job-title {
@@ -1271,25 +1341,31 @@ body.no-scroll {
     align-items: center;
 }
 
-/* --------------------------------------------------------------------------
-   10. SECTION 7: TREE BRANCH TIMELINE
-   -------------------------------------------------------------------------- */
+/* Pure CSS Tree Branch Bar (NO SVG) */
 .branch-timeline-wrapper {
     position: relative;
-    padding-top: 3rem;
+    padding-top: 1.5rem;
+    max-width: 1060px;
+    margin: 0 auto;
 }
 
-.tree-branch-img {
+.css-branch-line {
     width: 100%;
-    max-height: 80px;
-    object-fit: contain;
-    margin-bottom: 2rem;
+    height: 8px;
+    background: linear-gradient(90deg, #EC4899 0%, #7C3AED 50%, #3B82F6 100%);
+    border-radius: 4px;
+    margin-bottom: -15px;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    position: relative;
+    z-index: 1;
 }
 
 .hanging-fruits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .fruit-item {
@@ -1297,36 +1373,64 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform-origin: top center;
+    animation: fruitSway 4s ease-in-out infinite alternate;
+}
+
+.fruit-step-1 { animation-delay: 0s; }
+.fruit-step-2 { animation-delay: 0.6s; }
+.fruit-step-3 { animation-delay: 1.2s; }
+.fruit-step-4 { animation-delay: 1.8s; }
+
+@keyframes fruitSway {
+    0% { transform: rotate(-2.5deg) translateY(0); }
+    50% { transform: rotate(2.5deg) translateY(4px); }
+    100% { transform: rotate(-2.5deg) translateY(0); }
+}
+
+.fruit-item:hover {
+    animation-play-state: paused;
+    transform: translateY(8px) scale(1.02);
 }
 
 .stem-line {
-    width: 2px;
-    height: 40px;
+    width: 3px;
+    height: 45px;
     background: linear-gradient(to bottom, #7C3AED, #3B82F6);
+    margin-bottom: 0;
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.3);
 }
 
 .fruit-node-badge {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: #FFFFFF;
-    border: 3px solid #7C3AED;
+    border: 3.5px solid #7C3AED;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+    margin-bottom: -24px;
+    z-index: 5;
+    position: relative;
+}
+
+.mono-icon-symbol {
+    font-size: 1.25rem;
     color: #7C3AED;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
-    margin-bottom: -15px;
-    z-index: 2;
+    font-weight: 800;
 }
 
 .fruit-card {
     background: #FFFFFF;
     border: 1px solid var(--border-light);
-    padding: 1.75rem 1.25rem 1.25rem;
+    padding: 2.25rem 1.25rem 1.25rem;
     border-radius: var(--radius-md);
     text-align: center;
     width: 100%;
+    margin-top: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 .fruit-number {
