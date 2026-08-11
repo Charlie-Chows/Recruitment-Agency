@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Stackly</title>
+    <meta name="description"
+        content="The page you are looking for does not exist or has been moved. Return to Humandeck home page.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+        .error-page-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FAFAFD 0%, #F1F5F9 100%);
+        }
+
+        .error-card {
+            max-width: 620px;
+            width: 100%;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .error-card {
+            max-width: 620px;
+            width: 100%;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .error-code {
+            font-size: clamp(5rem, 15vw, 9rem);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #7C3AED, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .error-desc {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.25rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Animated Floating Background Bubbles */
+        .bg-bubble {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .b1 {
+            width: 300px;
+            height: 300px;
+            background: #DDD6FE;
+            top: -50px;
+            left: -50px;
+        }
+
+        .b2 {
+            width: 250px;
+            height: 250px;
+            background: #BFDBFE;
+            bottom: -50px;
+            right: -50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 404 CONTENT -->
+    <main class="error-page-section">
+        <!-- Floating background shapes -->
+        <div class="bg-bubble b1"></div>
+        <div class="bg-bubble b2"></div>
+        <div class="error-card hero-glass-card">
+            <!-- Header Brand Logo -->
+            <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
+                <img src="logo_trimmed.webp" alt="Humandeck Logo" class="header-logo-img">
+            </a>
+            <div class="error-code" id="errorCode">404</div>
+            <h1 class="error-title">Oops! Page Challenge Not Found</h1>
+            <p class="error-desc">The page or resource you are looking for might have been removed, renamed, or is
+                temporarily unavailable.</p>
+
+            <div class="error-actions">
+                <button class="btn btn-outline btn-lg" onclick="window.history.back()">
+                    ← Go Back
+                </button>
+                <a href="index.html" class="btn btn-dark btn-lg">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.from('.error-card', {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            gsap.from('.error-code', {
+                scale: 0.7,
+                opacity: 0,
+                duration: 1,
+                delay: 0.2,
+                ease: 'back.out(1.7)'
+            });
+        });
+    </script>
+</body>
+
+</html>

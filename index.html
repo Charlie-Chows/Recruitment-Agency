@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Next-Gen Talent & HR Recruitment Solutions</title>
+    <meta name="description"
+        content="Empowering top organizations with elite talent matching, HR challenges, and seamless executive search solutions.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- GSAP & ScrollTrigger Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- SECTION 1: HEADER & NAVIGATION -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logo_trimmed.webp" alt="Humandeck Logo" class="header-logo-img">
+            </a>
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#solutions" class="nav-link">Services</a>
+                <a href="#jobs" class="nav-link">Jobs</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="desktop-auth-btns">
+                    <button class="btn btn-link login-btn" onclick="openModal('loginModal')">Login</button>
+                    <button class="btn btn-dark signup-btn" onclick="openModal('signupModal')">Sign Up</button>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Full-Screen Mobile Drawer Navigation Overlay -->
+        <div class="mobile-nav-drawer" id="mobileDrawer">
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-nav-link active">Home</a>
+                <a href="#about" class="mobile-nav-link">About Us</a>
+                <a href="#solutions" class="mobile-nav-link">Services</a>
+                <a href="#jobs" class="mobile-nav-link">Jobs</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+                <div class="mobile-actions">
+                    <button class="btn btn-outline" style="width:100%" onclick="openModal('loginModal')">Login</button>
+                    <button class="btn btn-dark" style="width:100%" onclick="openModal('signupModal')">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- SECTION 1: HERO (MATCHING REFERENCE DESIGN EXACTLY) -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-grid">
+                <!-- Left Hero Column (Typography & Call to Action) -->
+                <div class="hero-left-content">
+                    <h1 class="hero-title">
+                        <span class="title-row-1">
+                            Let’s Challenge
+                            <span class="inline-badge gradient-circle-badge" title="Dynamic Talent Hub">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2.5" />
+                                    <circle cx="12" cy="12" r="4" fill="white" />
+                                </svg>
+                            </span>
+                            <span class="inline-arrow">→</span>
+                        </span>
+
+                        <span class="title-row-2">
+                            With
+                            <span class="inline-avatar-pill">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+                                    alt="Hired candidate avatar">
+                            </span>
+                            Hired
+                        </span>
+                        <span class="title-row-3">
+                            People
+                            <span class="inline-stack-pill">
+                                <span class="plus-icon">+</span>
+                                <div class="avatar-stack">
+                                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=80&q=80"
+                                        alt="Avatar 1">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                                        alt="Avatar 2">
+                                </div>
+                            </span>
+                            <svg class="wavy-underline" viewBox="0 0 160 16" fill="none">
+                                <path d="M2 8C20 2 35 14 55 8C75 2 95 14 115 8C135 2 145 14 158 8" stroke="#7C3AED"
+                                    stroke-width="4" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    <p class="hero-subtext">
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                        id est laborum. Connecting world-class companies with extraordinary talent.
+                    </p>
+                    <p class="hero-subtext">
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                        id est laborum. Connecting world-class companies with extraordinary talent.
+                    </p>
+                    <div class="hero-cta-wrapper">
+                        <button class="btn btn-dark hero-cta-btn" onclick="openModal('getStartedModal')">
+                            Get Started
+                        </button>
+                        <div class="hero-mini-badge card-float-sm">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
+                                alt="Active recruiter avatar">
+                            <div class="badge-tooltip">Active HR Match</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Hero Column (Visual Floating Cards & Avatars) -->
+                <div class="hero-right-visual">
+                    <div class="hero-graphics-container">
+                        <!-- Purple Backdrop Candidate Card -->
+                        <div class="candidate-card-purple gsap-float">
+                            <div class="card-bg-shape purple-backdrop"></div>
+                            <img src="purple_candidate.jpg" alt="Hired candidate purple sweater"
+                                class="candidate-img img-purple cutout-img">
+
+                            <!-- 3 Circular Avatar Rings Floating Right Next To Pointing Girl Image -->
+                            <div class="floating-avatars-group">
+                                <div class="avatar-ring ring-orange av-1">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
+                                        alt="Avatar 1">
+                                </div>
+                                <div class="avatar-ring ring-cyan av-2">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                                        alt="Avatar 2">
+                                </div>
+                                <div class="avatar-ring ring-yellow av-3">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80"
+                                        alt="Avatar 3">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blue Backdrop Candidate Card -->
+                        <div class="candidate-card-blue gsap-float-delayed">
+                            <div class="card-bg-shape blue-backdrop"></div>
+                            <img src="blue_candidate.jpg" alt="Candidate with mobile phone"
+                                class="candidate-img img-blue cutout-img">
+                        </div>
+                        <!-- Floating Rating Widget (Reference Match) -->
+                        <div class="rating-widget-card hero-glass-card gsap-card-float">
+                            <div class="rating-top-avatar">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                                    alt="Rating Avatar">
+                            </div>
+                            <div class="rating-stars-row">
+                                ★★★★★
+                            </div>
+                            <div class="rating-score-num">4.5</div>
+                            <div class="rating-stats-table">
+                                <div class="stat-pill">
+                                    <span class="month">Jan</span>
+                                    <span class="score">4.2 ★</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <span class="month">Feb</span>
+                                    <span class="score">3.4 ★</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <span class="month">March</span>
+                                    <span class="score">4.3 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating Challenges In-Progress Status Card (Reference Match) -->
+                        <div class="challenges-status-card hero-glass-card gsap-card-float-2">
+                            <h4 class="card-heading">Challenges</h4>
+                            <div class="challenge-rows-wrapper">
+                                <div class="challenge-row">
+                                    <span class="status-dot yellow"></span>
+                                    <div class="row-text">
+                                        <strong class="role-name">Web Design</strong>
+                                        <span class="status-text">In-Progress</span>
+                                    </div>
+                                </div>
+                                <div class="challenge-row">
+                                    <span class="status-dot pink"></span>
+                                    <div class="row-text">
+                                        <strong class="role-name">Mobile App Design</strong>
+                                        <span class="status-text">In-Progress</span>
+                                    </div>
+                                </div>
+                                <div class="challenge-row">
+                                    <span class="status-dot green"></span>
+                                    <div class="row-text">
+                                        <strong class="role-name">Wireframing</strong>
+                                        <span class="status-text">In-Progress</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SVG Connection Network Lines (Reference Design) -->
+                        <svg class="network-lines-svg" viewBox="0 0 400 300" fill="none">
+                            <path d="M120 100 Q 200 120 280 150" stroke="#0F172A" stroke-width="1.5"
+                                stroke-dasharray="3 3" />
+                            <path d="M120 140 Q 220 170 300 210" stroke="#0F172A" stroke-width="1.5" />
+                            <path d="M140 180 Q 240 220 270 260" stroke="#0F172A" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 2: CLIENT MARQUEE & TRUSTED BRANDS -->
+        <section class="marquee-section" id="marquee">
+            <div class="marquee-title-wrapper">
+                <span class="section-badge">Trusted Partners</span>
+                <p>Empowering Talent Teams at 250+ Industry Pioneers Worldwide</p>
+            </div>
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span class="brand-item">FINTECH GLOBAL</span>
+                    <span class="brand-item">NEXUS AI</span>
+                    <span class="brand-item">CLOUDSCALE</span>
+                    <span class="brand-item">HEALTHTECH LABS</span>
+                    <span class="brand-item">VERTEX CREATIVE</span>
+                    <span class="brand-item">QUANTUM DYNAMICS</span>
+                    <span class="brand-item">ECOVENTURES</span>
+                </div>
+                <div class="marquee-content" aria-hidden="true">
+                    <span class="brand-item">FINTECH GLOBAL</span>
+                    <span class="brand-item">NEXUS AI</span>
+                    <span class="brand-item">CLOUDSCALE</span>
+                    <span class="brand-item">HEALTHTECH LABS</span>
+                    <span class="brand-item">VERTEX CREATIVE</span>
+                    <span class="brand-item">QUANTUM DYNAMICS</span>
+                    <span class="brand-item">ECOVENTURES</span>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 3: CORE HUMAN RESOURCES & PLACEMENT SERVICES -->
+        <section class="services-section section-padding" id="solutions">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Our Solutions</span>
+                    <h2 class="section-title">Comprehensive Talent & Recruitment Suite</h2>
+                    <p class="section-subtitle">Tailored staffing and human capital management built for modern
+                        high-growth companies.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card glass-card">
+                        <div class="card-icon purple">💼</div>
+                        <h3>Executive Search</h3>
+                        <p>Pinpoint C-suite leaders and senior executive talent through confidential global headhunting.
+                        </p>
+                        <a href="#contact" class="card-link">Learn More →</a>
+                    </div>
+                    <div class="service-card glass-card">
+                        <div class="card-icon blue">⚡</div>
+                        <h3>Contract Staffing</h3>
+                        <p>Flexible technical and operational contractors to scale projects rapidly without overhead.
+                        </p>
+                        <a href="#contact" class="card-link">Learn More →</a>
+                    </div>
+                    <div class="service-card glass-card">
+                        <div class="card-icon green">🎯</div>
+                        <h3>Direct Hire / Perm</h3>
+                        <p>Full-time specialized talent matched for technical competency and long-term cultural
+                            alignment.</p>
+                        <a href="#contact" class="card-link">Learn More →</a>
+                    </div>
+                    <div class="service-card glass-card">
+                        <div class="card-icon orange">🚀</div>
+                        <h3>RPO & HR Advisory</h3>
+                        <p>Complete recruitment process outsourcing to manage talent pipelines end-to-end.</p>
+                        <a href="#contact" class="card-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 4: INTERACTIVE CHALLENGE & HIRING DASHBOARD -->
+        <section class="challenges-section section-padding bg-alt" id="challenges">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Interactive Dashboard</span>
+                    <h2 class="section-title">Manage Hiring Challenges In Real-Time</h2>
+                    <p class="section-subtitle">Monitor talent sprints, candidate assessments, and open positions live.
+                    </p>
+                </div>
+                <div class="challenge-dashboard-container glass-card">
+                    <div class="dashboard-tabs">
+                        <button class="dash-tab active" data-target="all">All Challenges (6)</button>
+                        <button class="dash-tab" data-target="design">Design & UX</button>
+                        <button class="dash-tab" data-target="engineering">Engineering</button>
+                        <button class="dash-tab" data-target="executive">Executive</button>
+                    </div>
+                    <div class="dashboard-list">
+                        <div class="dash-item" data-cat="design">
+                            <div class="dash-info">
+                                <h4>Senior Web UX Design Lead</h4>
+                                <span class="badge in-progress">In-Progress (14 Candidates Vetted)</span>
+                            </div>
+                            <div class="dash-meta">
+                                <span class="salary">$130,000 - $160,000</span>
+                                <button class="btn btn-sm btn-outline" onclick="openModal('challengeModal')">View
+                                    Pipeline</button>
+                            </div>
+                        </div>
+                        <div class="dash-item" data-cat="engineering">
+                            <div class="dash-info">
+                                <h4>Full-Stack React / Node Engineer</h4>
+                                <span class="badge in-progress">In-Progress (28 Candidates Vetted)</span>
+                            </div>
+                            <div class="dash-meta">
+                                <span class="salary">$140,000 - $175,000</span>
+                                <button class="btn btn-sm btn-outline" onclick="openModal('challengeModal')">View
+                                    Pipeline</button>
+                            </div>
+                        </div>
+                        <div class="dash-item" data-cat="design">
+                            <div class="dash-info">
+                                <h4>Mobile App Product Designer</h4>
+                                <span class="badge in-progress">In-Progress (9 Candidates Vetted)</span>
+                            </div>
+                            <div class="dash-meta">
+                                <span class="salary">$115,000 - $145,000</span>
+                                <button class="btn btn-sm btn-outline" onclick="openModal('challengeModal')">View
+                                    Pipeline</button>
+                            </div>
+                        </div>
+                        <div class="dash-item" data-cat="executive">
+                            <div class="dash-info">
+                                <h4>VP of Global Talent Acquisition</h4>
+                                <span class="badge completed">Completed (Hired in 18 Days)</span>
+                            </div>
+                            <div class="dash-meta">
+                                <span class="salary">$210,000 - $260,000</span>
+                                <button class="btn btn-sm btn-outline" onclick="openModal('challengeModal')">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 5: AI TALENT MATCHING SHOWCASE -->
+        <section class="matching-section section-padding" id="matching">
+            <div class="container matching-grid">
+                <div class="matching-content">
+                    <span class="section-badge">AI-Driven Precision</span>
+                    <h2 class="section-title">98.4% Retention Rate Driven By Predictive Matching</h2>
+                    <p>Our proprietary evaluation algorithms assess hard technical skills, communication styles, and
+                        cultural values to deliver shortlist recommendations in under 48 hours.</p>
+
+                    <ul class="matching-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Automated Skill Verification</strong>
+                                <p>Live coding challenges and asynchronous video screen analysis.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Background & Compliance Checks</strong>
+                                <p>Automated global reference and security clearance verification.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-dark" onclick="openModal('getStartedModal')">Request Talent Match</button>
+                </div>
+                <div class="matching-visual glass-card text-center">
+                    <div class="ai-hub-graphic">
+                        <div class="hub-pulse"></div>
+                        <div class="hub-center">Humandeck AI Engine</div>
+                        <div class="candidate-node n1">Vetted 99%</div>
+                        <div class="candidate-node n2">Matched 48h</div>
+                        <div class="candidate-node n3">Verified CV</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 6: FEATURED ACTIVE JOBS SHOWCASE -->
+        <section class="jobs-section section-padding bg-alt" id="jobs">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Active Opportunities</span>
+                    <h2 class="section-title">Featured High-Impact Careers</h2>
+                    <p class="section-subtitle">Explore open roles with our elite tech, finance, and creative partner
+                        enterprises.</p>
+                </div>
+                <div class="jobs-grid">
+                    <div class="job-card glass-card">
+                        <div class="job-header">
+                            <span class="job-type remote">Remote</span>
+                            <span class="job-posted">2 days ago</span>
+                        </div>
+                        <h3 class="job-title">Staff AI Systems Architect</h3>
+                        <p class="job-company">Nexus Artificial Intelligence • New York, NY</p>
+                        <div class="job-details">
+                            <span class="job-salary">$190k - $240k / yr</span>
+                            <button class="btn btn-sm btn-dark" onclick="openModal('applyModal')">Fast Apply</button>
+                        </div>
+                    </div>
+                    <div class="job-card glass-card">
+                        <div class="job-header">
+                            <span class="job-type hybrid">Hybrid</span>
+                            <span class="job-posted">1 day ago</span>
+                        </div>
+                        <h3 class="job-title">Head of People & Culture</h3>
+                        <p class="job-company">Fintech Global Inc. • San Francisco, CA</p>
+                        <div class="job-details">
+                            <span class="job-salary">$165k - $210k / yr</span>
+                            <button class="btn btn-sm btn-dark" onclick="openModal('applyModal')">Fast Apply</button>
+                        </div>
+                    </div>
+                    <div class="job-card glass-card">
+                        <div class="job-header">
+                            <span class="job-type onsite">Onsite</span>
+                            <span class="job-posted">Just now</span>
+                        </div>
+                        <h3 class="job-title">Senior Product UX Designer</h3>
+                        <p class="job-company">Vertex Creative Studio • Austin, TX</p>
+                        <div class="job-details">
+                            <span class="job-salary">$135k - $160k / yr</span>
+                            <button class="btn btn-sm btn-dark" onclick="openModal('applyModal')">Fast Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 7: DUAL HIRING PROCESS TIMELINE -->
+        <section class="process-section section-padding" id="process">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">How It Works</span>
+                    <h2 class="section-title">Streamlined Journey to Success</h2>
+                    <div class="process-toggle-btns">
+                        <button class="btn btn-dark proc-btn active" id="btnEmployers"
+                            onclick="toggleProcess('employers')">For Employers</button>
+                        <button class="btn btn-outline proc-btn" id="btnCandidates"
+                            onclick="toggleProcess('candidates')">For Candidates</button>
+                    </div>
+                </div>
+                <div class="process-timeline" id="processTimeline">
+                    <div class="process-step">
+                        <div class="step-num">01</div>
+                        <h4>Discovery & Challenge Scope</h4>
+                        <p>We analyze your team requirements, technical needs, and timeline to craft tailored candidate
+                            benchmarks.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">02</div>
+                        <h4>AI Sourcing & Screening</h4>
+                        <p>Our talent network is queried with automated skill evaluations and video interviews.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">03</div>
+                        <h4>Hand-Picked Shortlist</h4>
+                        <p>Receive top 3 vetted profiles complete with assessment scoring and cultural fit matrix.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">04</div>
+                        <h4>Seamless Offer & Onboard</h4>
+                        <p>We manage offer negotiation, background compliance checks, and integration support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 8: INTERACTIVE SALARY & CANDIDATE COST CALCULATOR -->
+        <section class="calculator-section section-padding bg-alt" id="calculator">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Interactive Estimator</span>
+                    <h2 class="section-title">Talent Investment & Salary Calculator</h2>
+                    <p class="section-subtitle">Estimate market compensation and hiring turnaround times based on role
+                        scope.</p>
+                </div>
+                <div class="calc-card glass-card">
+                    <div class="calc-controls">
+                        <div class="calc-group">
+                            <label for="roleType">Select Role Category:</label>
+                            <select id="roleType" class="calc-input">
+                                <option value="1.2">Software Engineering & Tech</option>
+                                <option value="1.0">UI/UX & Product Design</option>
+                                <option value="1.3">Executive Leadership & C-Suite</option>
+                                <option value="0.9">HR & Operations</option>
+                            </select>
+                        </div>
+                        <div class="calc-group">
+                            <label for="expLevel">Experience Level (Years): <span id="expVal">5 Years</span></label>
+                            <input type="range" id="expLevel" min="1" max="15" value="5" class="calc-slider">
+                        </div>
+                    </div>
+                    <div class="calc-results text-center">
+                        <div class="res-box">
+                            <span class="res-label">Estimated Annual Salary</span>
+                            <div class="res-value" id="salaryEstimate">$125,000</div>
+                        </div>
+                        <div class="res-box">
+                            <span class="res-label">Average Time-to-Hire</span>
+                            <div class="res-value highlight" id="timeEstimate">14 Days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 9: CLIENT & CANDIDATE TESTIMONIALS -->
+        <section class="testimonials-section section-padding" id="testimonials">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Success Stories</span>
+                    <h2 class="section-title">Loved By Talent & Tech Leaders</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card glass-card">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-quote">"Humandeck helped us fill three key engineering leadership positions in under
+                            3 weeks. The candidate quality was unmatched."</p>
+                        <div class="t-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                                alt="CTO Author">
+                            <div>
+                                <strong>Marcus Vance</strong>
+                                <small>CTO at CloudScale Inc.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-quote">"As a candidate, the experience was transparent, fast, and respectful. I
+                            landed my dream Product Design role in 10 days!"</p>
+                        <div class="t-author">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+                                alt="Candidate Author">
+                            <div>
+                                <strong>Elena Rostova</strong>
+                                <small>Lead UX Designer at Vertex</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 10: LEAD CAPTURE & FOOTER -->
+        <section class="cta-banner-section section-padding bg-dark text-white" id="contact">
+            <div class="container text-center">
+                <h2 class="cta-title">Ready To Scale Your Team With Elite Talent?</h2>
+                <p class="cta-subtitle">Connect with our senior recruiters today or submit your CV to join our talent
+                    pool.</p>
+                <div class="cta-actions">
+                    <button class="btn btn-light btn-lg" onclick="openModal('getStartedModal')">Hire Top Talent</button>
+                    <button class="btn btn-outline-light btn-lg" onclick="openModal('applyModal')">Submit Your
+                        Resume</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="logo">
+                    <img src="logo_trimmed.webp" alt="Humandeck Logo" class="footer-logo-img">
+                </a>
+                <p>Empowering companies and extraordinary talent with modern HR recruitment & executive search
+                    solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#solutions">Executive Search</a></li>
+                    <li><a href="#solutions">Contract Staffing</a></li>
+                    <li><a href="#solutions">Direct Hire</a></li>
+                    <li><a href="#solutions">RPO Advisory</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#challenges">Challenges</a></li>
+                    <li><a href="#jobs">Active Jobs</a></li>
+                    <li><a href="#calculator">Salary Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Get weekly market talent insights & top job alerts.</p>
+                <form class="newsletter-form"
+                    onsubmit="event.preventDefault(); alert('Subscribed to Humandeck insights!');">
+                    <input type="email" placeholder="Enter your email" required class="nl-input">
+                    <button type="submit" class="btn btn-dark">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 Humandeck Recruitment Agency. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms of Service</a>
+                <a href="404.html">Security</a>
+            </div>
+        </div>
+    </footer>
+    <!-- MODAL WINDOWS -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-card glass-card">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modalContent">
+                <h3>Contact Humandeck</h3>
+                <p>Please enter your information and our recruiting team will get in touch with you shortly.</p>
+                <form onsubmit="event.preventDefault(); alert('Request submitted successfully!'); closeModal();"
+                    class="modal-form">
+                    <input type="text" placeholder="Full Name" required class="calc-input">
+                    <input type="email" placeholder="Work Email" required class="calc-input">
+                    <textarea placeholder="Tell us about your hiring needs..." rows="4" class="calc-input"></textarea>
+                    <button type="submit" class="btn btn-dark" style="width:100%">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
