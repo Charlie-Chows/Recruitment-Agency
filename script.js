@@ -112,17 +112,20 @@ function initScrollAnimations() {
             ease: 'power2.out'
         });
     });
-    // Reveal Service Cards
-    gsap.from('.service-card', {
-        scrollTrigger: {
-            trigger: '.services-grid',
-            start: 'top 80%'
-        },
-        y: 40,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.8
-    });
+    // Reveal Service & Bento Cards with smooth slide-up
+    if (document.querySelector('.bento-grid')) {
+        gsap.from('.bento-card', {
+            scrollTrigger: {
+                trigger: '.bento-grid',
+                start: 'top 85%'
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
+    }
  // Reveal Job Cards
     gsap.from('.job-card', {
         scrollTrigger: {
@@ -196,8 +199,43 @@ function initCalculator() {
     updateCalc();
 }
 /* --------------------------------------------------------------------------
-   6. Process Workflow Switcher (Employers vs Candidates)
+   6. Mouse Spotlight Glow Effect
    -------------------------------------------------------------------------- */
+function initBentoSpotlight() {
+    const cards = document.querySelectorAll('.spotlight-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+}
+
+// Call Spotlight on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    initBentoSpotlight();
+});
+
+/* --------------------------------------------------------------------------
+   7. Newsletter Validation & 404 Redirect
+   -------------------------------------------------------------------------- */
+function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('newsletterEmail');
+    const errorMsg = document.getElementById('newsletterError');
+    if (!input) return;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailRegex.test(input.value.trim())) {
+        if (errorMsg) errorMsg.style.display = 'none';
+        window.location.href = '404.html';
+    } else {
+        if (errorMsg) errorMsg.style.display = 'block';
+    }
+}
 function toggleProcess(type) {
     const btnEmployers = document.getElementById('btnEmployers');
     const btnCandidates = document.getElementById('btnCandidates');
