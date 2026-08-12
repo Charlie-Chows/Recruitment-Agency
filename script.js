@@ -112,18 +112,43 @@ function initScrollAnimations() {
             ease: 'power2.out'
         });
     });
-    // Reveal Service & Bento Cards with smooth slide-up
-    if (document.querySelector('.bento-grid')) {
-        gsap.from('.bento-card', {
-            scrollTrigger: {
-                trigger: '.bento-grid',
-                start: 'top 85%'
-            },
-            y: 50,
-            opacity: 0,
-            stagger: 0.15,
-            duration: 0.8,
-            ease: 'power3.out'
+    // Reveal Service & Bento Cards with mobile-only side sliding and desktop entrance
+    const bentoCards = document.querySelectorAll('.bento-card');
+    if (bentoCards.length > 0) {
+        let bentoMm = gsap.matchMedia();
+
+        // Mobile View (< 768px): Alternating left & right sliding animations per card
+        bentoMm.add("(max-width: 767px)", () => {
+            bentoCards.forEach((card, index) => {
+                const xOffset = (index % 2 === 0) ? -75 : 75;
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 88%',
+                    },
+                    x: xOffset,
+                    opacity: 0,
+                    duration: 0.85,
+                    ease: 'power3.out',
+                    clearProps: 'all'
+                });
+            });
+        });
+
+        // Desktop View (>= 768px): Original desktop staggered entrance
+        bentoMm.add("(min-width: 768px)", () => {
+            gsap.from('.bento-card', {
+                scrollTrigger: {
+                    trigger: '.bento-grid',
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                stagger: 0.15,
+                duration: 0.8,
+                ease: 'power3.out',
+                clearProps: 'all'
+            });
         });
     }
     // Reveal Dashboard Items with staggered smooth entrance effect

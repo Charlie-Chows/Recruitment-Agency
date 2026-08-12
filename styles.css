@@ -1068,6 +1068,54 @@ body.no-scroll {
     gap: 1rem;
 }
 
+/* Clean, Spacious Styling for Bento Flip Card Lists */
+ul.expand-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 1.25rem 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+ul.expand-list li {
+    list-style: none !important;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #F1F5F9;
+}
+
+@media screen and (max-width: 767px) {
+    .flip-card-container {
+        min-height: 315px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .flip-card-back h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .flip-card-back p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+    }
+
+    .bento-flex-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+}
+
 /* Spotlight Glow Overlay */
 .spotlight-card {
     position: relative;
