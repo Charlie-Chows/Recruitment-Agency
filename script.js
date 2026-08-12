@@ -126,18 +126,19 @@ function initScrollAnimations() {
             ease: 'power3.out'
         });
     }
-    // Reveal Dashboard Items with staggered slide-right effect
+    // Reveal Dashboard Items with staggered smooth entrance effect
     if (document.querySelector('.dashboard-list')) {
         gsap.from('.dash-item', {
             scrollTrigger: {
                 trigger: '.dashboard-list',
                 start: 'top 85%'
             },
-            x: -40,
+            y: 25,
             opacity: 0,
-            stagger: 0.12,
-            duration: 0.85,
-            ease: 'back.out(1.2)'
+            stagger: 0.1,
+            duration: 0.7,
+            ease: 'power2.out',
+            clearProps: 'all'
         });
     }
 
@@ -183,6 +184,12 @@ function initDashboardTabs() {
             items.forEach(item => {
                 if (category === 'all' || item.getAttribute('data-cat') === category) {
                     item.style.display = 'flex';
+                    if (typeof gsap !== 'undefined') {
+                        gsap.fromTo(item, 
+                            { opacity: 0, y: 15 },
+                            { opacity: 1, y: 0, duration: 0.35, clearProps: 'transform,opacity' }
+                        );
+                    }
                 } else {
                     item.style.display = 'none';
                 }
