@@ -186,6 +186,29 @@ function initScrollAnimations() {
             });
         });
     }
+    // Reveal AI Matching Step Cards - Mobile Only Side Sliding Effects
+    const darkStepCards = document.querySelectorAll('.dark-step-card');
+    if (darkStepCards.length > 0) {
+        let stepMm = gsap.matchMedia();
+        // Mobile View (< 768px): Alternating left & right sliding animations per card
+        stepMm.add("(max-width: 767px)", () => {
+            darkStepCards.forEach((card, index) => {
+                const xOffset = (index % 2 === 0) ? -75 : 75;
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 88%',
+                    },
+                    x: xOffset,
+                    opacity: 0,
+                    duration: 0.85,
+                    ease: 'power3.out',
+                    clearProps: 'all'
+                });
+            });
+        });
+    }
+
     // Reveal Process Steps
     gsap.from('.process-step', {
         scrollTrigger: {
