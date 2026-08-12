@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Stackly Recruitment Agency</title>
+    <meta name="description"
+        content="Learn about Stackly's heritage, executive leadership team, and precision AI talent acquisition platform empowering global tech leaders.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- GSAP & ScrollTrigger Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- SECTION 1: HEADER & NAVIGATION (REUSED) -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+            </a>
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="jobs.html" class="nav-link">Jobs</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="desktop-auth-btns">
+                    <a href="login.html" class="btn btn-link login-btn">Login</a>
+                    <a href="signup.html" class="btn btn-dark signup-btn">Sign Up</a>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Full-Screen Mobile Drawer Navigation Overlay -->
+        <div class="mobile-nav-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-header">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+                </a>
+            </div>
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link active">About Us</a>
+                <a href="services.html" class="mobile-nav-link">Services</a>
+                <a href="jobs.html" class="mobile-nav-link">Jobs</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+                <div class="mobile-actions">
+                    <a href="login.html" class="btn btn-outline" style="width:100%; text-align:center;">Login</a>
+                    <a href="signup.html" class="btn btn-dark" style="width:100%; text-align:center;">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SECTION 1: UNIQUE PAGE HERO BANNER & SPLIT STORY -->
+        <section class="about-hero-banner overflow-hidden" id="aboutHero">
+            <div class="container">
+                <span class="section-badge">About Stackly</span>
+                <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-top: 0.5rem;">
+                    Engineering the Future of <span class="gradient-text">Global Recruitment</span>
+                </h1>
+                <p class="section-subtitle" style="max-width: 680px; margin: 0.75rem auto 0;">
+                    Bridging extraordinary engineering & executive talent with visionary global companies through algorithmic precision and human rigor.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 1.5: OUR FOUNDING STORY & RICH IMAGE COMPOSITION -->
+        <section class="section-padding" id="ourStory">
+            <div class="container">
+                <div class="about-story-grid">
+                    <!-- Left Column: Rich Photo Composition -->
+                    <div class="story-image-wrapper">
+                        <img src="assets/man_yellow_cutout_1786480129230.jpg" alt="Stackly Founders & Recruitment Team" class="story-img">
+                        <div class="story-floating-badge">
+                            <strong class="stat-counter" data-target="15000" data-decimals="0" data-format="comma" data-suffix="+ Talent Vetted" style="font-size: 1.2rem; color: #A78BFA; display: block;">0+ Talent Vetted</strong>
+                            <span style="font-size: 0.85rem; color: #CBD5E1;">Across 30+ Countries Worldwide</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Narrative Story & Impact -->
+                    <div class="story-content-col">
+                        <span class="section-badge">Our Heritage</span>
+                        <h2 class="section-title" style="margin-top: 0.5rem;">Built to Eliminate Hiring Friction for High-Growth Tech Teams</h2>
+                        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+                            Founded in 2021, Stackly emerged from a simple realization: traditional recruitment agencies rely on slow manual headhunting, while automated platforms flood hiring managers with unqualified resumes.
+                        </p>
+                        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.75rem;">
+                            We pioneered a hybrid approach combining 9-tier predictive competency matching with dedicated senior practice leads. Today, Stackly helps over 350 enterprise clients build elite engineering and executive teams in days, not months.
+                        </p>
+
+                        <!-- Key Metrics Bar -->
+                        <div style="display: flex; gap: 2.5rem; flex-wrap: wrap; border-top: 1px solid var(--border-light); padding-top: 1.5rem;" class="stats-counter-bar">
+                            <div>
+                                <strong class="stat-counter" data-target="98.4" data-decimals="1" data-suffix="%" style="font-size: 1.8rem; color: var(--primary-purple); display: block;">0%</strong>
+                                <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Placement Retention</span>
+                            </div>
+                            <div>
+                                <strong class="stat-counter" data-target="18" data-decimals="0" data-suffix=" Days" style="font-size: 1.8rem; color: var(--primary-purple); display: block;">0 Days</strong>
+                                <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Avg Time-To-Hire</span>
+                            </div>
+                            <div>
+                                <strong class="stat-counter" data-target="350" data-decimals="0" data-suffix="+" style="font-size: 1.8rem; color: var(--primary-purple); display: block;">0+</strong>
+                                <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Enterprise Partners</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: METHODOLOGY & VALUE PILLARS -->
+        <section class="section-padding bg-alt overflow-hidden" id="methodology">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">How We Deliver</span>
+                    <h2 class="section-title">Our 4-Pillar Recruitment Engine</h2>
+                    <p class="section-subtitle">A proven, high-velocity methodology engineered for quality and speed.</p>
+                </div>
+
+                <div class="about-feature-split">
+                    <!-- Left Column: Featured Image -->
+                    <div class="story-image-wrapper" style="height: 460px;">
+                        <img src="assets/man_blue_buttonup_1786479846299.jpg" alt="Technical Vetting Practice Lead" class="story-img img-contain" style="height: 100%;">
+                    </div>
+
+                    <!-- Right Column: Numbered List -->
+                    <div class="feature-list-group">
+                        <div class="feature-list-item dark-feature-item">
+                            <div class="feature-num">01</div>
+                            <div class="feature-text-content">
+                                <h4>Algorithmic & Technical Vetting</h4>
+                                <p>Candidates undergo 9-tier predictive competency evaluations, real-world coding benchmarks, and AI video screen assessments.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-list-item">
+                            <div class="feature-num">02</div>
+                            <div class="feature-text-content">
+                                <h4>Transparent Live Pipeline Dashboards</h4>
+                                <p>Hiring managers access real-time candidate scorecards, interview snippets, and compensation benchmarks in a unified dashboard.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-list-item dark-feature-item">
+                            <div class="feature-num">03</div>
+                            <div class="feature-text-content">
+                                <h4>48-Hour Shortlist Delivery</h4>
+                                <p>Receive your top 3 hand-picked, pre-screened candidate profiles within 48 hours of practice kickoff.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-list-item">
+                            <div class="feature-num">04</div>
+                            <div class="feature-text-content">
+                                <h4>Compliance & Free Replacement Coverage</h4>
+                                <p>Full W2/1099 compliance, background security verification, and a 100% free replacement coverage period.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: VERTICAL GROWTH JOURNEY TIMELINE -->
+        <section class="section-padding overflow-hidden" id="growthJourney">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Company Evolution</span>
+                    <h2 class="section-title">Milestones of Innovation</h2>
+                    <p class="section-subtitle">Key chapters in Stackly's journey to global recruitment leadership.</p>
+                </div>
+
+                <div class="vertical-timeline">
+                    <div class="timeline-item-vertical">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year-badge">2021 • Foundation</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.35rem;">San Francisco Launch</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0; max-width: 620px;">
+                            Founded in Silicon Valley to eliminate executive and senior engineering hiring bottlenecks for VC-backed tech startups.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item-vertical">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year-badge">2023 • Expansion</span>
+                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.35rem;">AI Matching Platform Rollout</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0; max-width: 620px;">
+                            Launched our proprietary candidate matching engine and expanded operations into London, Berlin, and Singapore.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item-vertical">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year-badge">2024 • Scale</span>
+                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.35rem;">10,000+ Placements Milestone</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0; max-width: 620px;">
+                            Surpassed 10,000 verified technical placements with an industry-leading 98.4% placement retention rate.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item-vertical">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year-badge">2026 • Global Leadership</span>
+                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.35rem;">350+ Enterprise Partners</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0; max-width: 620px;">
+                            Operate 24/7 high-velocity executive and contract talent search across 30+ countries worldwide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: EXECUTIVE LEADERSHIP TEAM GRID -->
+        <section class="section-padding bg-alt" id="leadership">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Leadership Team</span>
+                    <h2 class="section-title">Meet the Practice Leads</h2>
+                    <p class="section-subtitle">Industry veterans and AI architects dedicated to your hiring success.</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar-wrapper">
+                            <img src="assets/woman_purple_sweater_1786479201514.jpg" alt="Elena Vance" class="team-avatar-img">
+                        </div>
+                        <h3 class="team-name">Elena Vance</h3>
+                        <span class="team-role">Founder & Chief Executive Officer</span>
+                        <p class="team-bio">15+ years scaling tech executive teams across Silicon Valley and European innovation hubs.</p>
+                        <div class="team-socials">
+                            <a href="404.html" class="team-social-link" aria-label="LinkedIn">in</a>
+                            <a href="404.html" class="team-social-link" aria-label="Twitter">𝕏</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-avatar-wrapper">
+                            <img src="assets/man_blue_shirt_1786479217032.jpg" alt="Marcus Sterling" class="team-avatar-img">
+                        </div>
+                        <h3 class="team-name">Marcus Sterling</h3>
+                        <span class="team-role">Managing Director, Executive Search</span>
+                        <p class="team-bio">Specializes in C-Suite placements and confidential executive headhunting for Fortune 500 tech firms.</p>
+                        <div class="team-socials">
+                            <a href="404.html" class="team-social-link" aria-label="LinkedIn">in</a>
+                            <a href="404.html" class="team-social-link" aria-label="Twitter">𝕏</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-avatar-wrapper">
+                            <img src="assets/yellow_man_close_up_1786479866212.jpg" alt="Dr. Aris Chen" class="team-avatar-img">
+                        </div>
+                        <h3 class="team-name">Dr. Aris Chen</h3>
+                        <span class="team-role">VP of AI & Matching Algorithms</span>
+                        <p class="team-bio">Former AI research head pioneering 9-tier predictive competency matching for engineering roles.</p>
+                        <div class="team-socials">
+                            <a href="404.html" class="team-social-link" aria-label="LinkedIn">in</a>
+                            <a href="404.html" class="team-social-link" aria-label="GitHub">gh</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-avatar-wrapper">
+                            <img src="assets/woman_purple_grid_1786479834802.jpg" alt="Sophia Rodriguez" class="team-avatar-img">
+                        </div>
+                        <h3 class="team-name">Sophia Rodriguez</h3>
+                        <span class="team-role">Head of Global Client Partnerships</span>
+                        <p class="team-bio">Leads enterprise RPO advisory, talent pipeline strategy, and dedicated account operations.</p>
+                        <div class="team-socials">
+                            <a href="404.html" class="team-social-link" aria-label="LinkedIn">in</a>
+                            <a href="404.html" class="team-social-link" aria-label="Twitter">𝕏</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CLIENT TESTIMONIAL & QUOTE SHOWCASE -->
+        <section class="section-padding overflow-hidden" id="clientQuote">
+            <div class="container">
+                <div class="about-quote-box">
+                    <blockquote>
+                        "Stackly transformed our hiring velocity. They delivered three extraordinary AI Systems Architects in under two weeks, saving us months of search time and providing complete pipeline transparency."
+                    </blockquote>
+                    <div class="quote-author">
+                        <img src="assets/yellow_man_close_up_1786479866212.jpg" alt="David Miller" class="quote-avatar">
+                        <div>
+                            <strong style="display: block; font-size: 1.05rem; color: #FFFFFF;">David Miller</strong>
+                            <span style="font-size: 0.85rem; color: #A78BFA;">VP of Engineering • Nexus AI Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTIVE CALL-TO-ACTION BANNER -->
+        <section class="cta-banner-section section-padding bg-dark text-white text-center">
+            <div class="container">
+                <div class="cta-box glass-card" style="padding: 3.5rem 2rem; background: rgba(255, 255, 255, 0.03);">
+                    <span class="section-badge" style="background: rgba(124, 58, 237, 0.2); color: #C4B5FD;">Start Hiring Today</span>
+                    <h2 class="section-title text-white" style="margin-top: 0.75rem;">Ready to Build Your Elite Engineering & Executive Team?</h2>
+                    <p class="section-subtitle" style="color: #94A3B8; max-width: 620px; margin: 0 auto 2rem;">
+                        Connect with our senior practice leads for a confidential talent consultation and market salary benchmark report.
+                    </p>
+                    <div class="cta-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-primary btn-lg glow-effect">Schedule Consultation</a>
+                        <a href="jobs.html" class="btn btn-outline-light btn-lg">Explore Open Roles</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION 7: SITE FOOTER (REUSED) -->
+    <footer class="site-footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-top grid-4-col">
+
+                <!-- Column 1: Brand & Social Icons -->
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">Empowering companies and extraordinary talent with modern HR recruitment & executive search solutions.</p>
+                    <div class="footer-social-mono">
+                        <a href="404.html" class="mono-icon-link" aria-label="LinkedIn">in</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Twitter X">𝕏</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="GitHub">gh</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Solutions -->
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="404.html">Executive Search</a></li>
+                        <li><a href="404.html">Contract Staffing</a></li>
+                        <li><a href="404.html">Direct Hire</a></li>
+                        <li><a href="404.html">RPO Advisory</a></li>
+                        <li><a href="404.html">Tech Sourcing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter Form -->
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p class="footer-text">Get weekly tech talent insights & market salary reports.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email" required class="newsletter-input">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <span id="newsletterError" style="color: #F43F5E; font-size: 0.75rem; display: none; margin-top: 0.25rem;">Please enter a valid email address.</span>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Security</a>
+                </div>
+                <p>© 2026 Stackly Recruitment Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>

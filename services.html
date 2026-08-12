@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Practice Areas | Stackly Recruitment Agency</title>
+    <meta name="description"
+        content="Explore Stackly's core talent acquisition practices: Executive Search, Full-Stack Tech Sourcing, AI Practice, RPO Advisory, and Contract Staffing.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- GSAP & ScrollTrigger Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- SECTION 1: HEADER & NAVIGATION (REUSED) -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+            </a>
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="jobs.html" class="nav-link">Jobs</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="desktop-auth-btns">
+                    <a href="login.html" class="btn btn-link login-btn">Login</a>
+                    <a href="signup.html" class="btn btn-dark signup-btn">Sign Up</a>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Full-Screen Mobile Drawer Navigation Overlay -->
+        <div class="mobile-nav-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-header">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+                </a>
+            </div>
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About Us</a>
+                <a href="services.html" class="mobile-nav-link active">Services</a>
+                <a href="jobs.html" class="mobile-nav-link">Jobs</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+                <div class="mobile-actions">
+                    <a href="login.html" class="btn btn-outline" style="width:100%; text-align:center;">Login</a>
+                    <a href="signup.html" class="btn btn-dark" style="width:100%; text-align:center;">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SECTION 1: SERVICES HERO PAGE BANNER -->
+        <section class="about-hero-banner overflow-hidden" id="servicesHero">
+            <div class="container">
+                <span class="section-badge">Comprehensive Talent Solutions</span>
+                <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-top: 0.5rem;">
+                    Next-Gen Headhunting, Executive Search <br>& <span class="gradient-text">RPO Advisory</span>
+                </h1>
+                <p class="section-subtitle" style="max-width: 680px; margin: 0.75rem auto 1.5rem;">
+                    From C-suite leadership placements to high-velocity technical squad scaling, discover how our AI-powered practices deliver top 1% talent.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-primary btn-lg glow-effect">Request Talent Practice</a>
+                    <a href="#calculator" class="btn btn-outline btn-lg">Calculate Hiring Cost</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: OUR 6 CORE SPECIALIZED SERVICE PRACTICES (INTERACTIVE ACCORDION - ZERO CARDS) -->
+        <section class="services-section section-padding overflow-hidden" id="practices">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Core Practice Areas</span>
+                    <h2 class="section-title">Specialized Recruitment Engineering</h2>
+                    <p class="section-subtitle">Click to explore our 6 specialized headhunting and staffing practices.</p>
+                </div>
+
+                <div class="practice-accordion-grid">
+                    <!-- Left Column: Editorial Photo Showcase -->
+                    <div class="story-image-wrapper" style="height: 480px;">
+                        <img src="assets/fintech_ai_team.jpg" alt="Stackly Practice Engineering Team" class="story-img" style="height: 100%;">
+                        <div class="story-floating-badge">
+                            <strong>Global Headhunting Network</strong>
+                            <span style="font-size: 0.85rem; color: #CBD5E1;">Vetting Top 1% Executive & Tech Talent</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Accordion (ZERO CARDS) -->
+                    <div class="accordion-list">
+                        <!-- Accordion 01 (Active) -->
+                        <div class="accordion-item active">
+                            <div class="accordion-header">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-num">01</span>
+                                    <h3 class="accordion-title">Confidential C-Suite Search</h3>
+                                </div>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Stealth headhunting for CEOs, CTOs, VPs of Engineering, and Chief Product Officers with 100% NDA protection & 1-year replacement guarantee.</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag-chip">Executive Search</span>
+                                    <span class="accordion-tag-chip">100% NDA Stealth</span>
+                                    <span class="accordion-tag-chip">1-Yr Guarantee</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 02 -->
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-num">02</span>
+                                    <h3 class="accordion-title">Full-Stack Tech Sourcing</h3>
+                                </div>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Rapid deployment of senior React, Node, Python, Go, and Cloud Architects pre-vetted through real-world coding benchmarks.</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag-chip">Technical Squads</span>
+                                    <span class="accordion-tag-chip">Coding Vetted</span>
+                                    <span class="accordion-tag-chip">48h Shortlist</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 03 -->
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-num">03</span>
+                                    <h3 class="accordion-title">AI & ML Specialist Vetting</h3>
+                                </div>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Targeted headhunting for Machine Learning Engineers, LLM Architects, Computer Vision Specialists, and Chief Data Officers.</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag-chip">AI & LLM Experts</span>
+                                    <span class="accordion-tag-chip">Data Science</span>
+                                    <span class="accordion-tag-chip">Algorithm Vetted</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 04 -->
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-num">04</span>
+                                    <h3 class="accordion-title">Recruitment Process Outsourcing</h3>
+                                </div>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Embedded senior talent acquisition partners scaling your internal recruitment function with zero fixed head-count overhead.</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag-chip">Embedded RPO</span>
+                                    <span class="accordion-tag-chip">Zero Headcount</span>
+                                    <span class="accordion-tag-chip">Full SLA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 05 -->
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-num">05</span>
+                                    <h3 class="accordion-title">Contract & Fractional Staffing</h3>
+                                </div>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Flexible 3-12 month senior technical contractors to accelerate urgent product sprints and cloud migrations.</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag-chip">Fractional Talent</span>
+                                    <span class="accordion-tag-chip">3-12 mo Terms</span>
+                                    <span class="accordion-tag-chip">W2 & 1099</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 06 -->
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-num">06</span>
+                                    <h3 class="accordion-title">Global Remote Expansion</h3>
+                                </div>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <p>End-to-end W2/1099 payroll compliance, background security verification, and global talent onboarding across 30+ countries.</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag-chip">30+ Countries</span>
+                                    <span class="accordion-tag-chip">Global Payroll</span>
+                                    <span class="accordion-tag-chip">Compliance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: INTERACTIVE SERVICE CALCULATOR & PRACTICE ESTIMATOR -->
+        <section class="calculator-section section-padding bg-alt overflow-hidden" id="calculator">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Interactive Estimator</span>
+                    <h2 class="section-title">Calculate Talent Investment & Turnaround</h2>
+                    <p class="section-subtitle">Estimate market compensation and hiring turnaround times based on role scope.</p>
+                </div>
+
+                <div class="about-feature-split">
+                    <!-- Left Column: Estimator Widget -->
+                    <div>
+                        <div class="calc-card glass-card spotlight-card" style="margin: 0;">
+                            <div class="spotlight-glow"></div>
+                            <div class="calc-controls">
+                                <div class="calc-group">
+                                    <label>Select Role Category:</label>
+                                    <div class="custom-dropdown" id="roleCustomDropdown">
+                                        <button type="button" class="custom-dropdown-trigger" id="roleDropdownTrigger" aria-haspopup="listbox" aria-expanded="false">
+                                            <span class="dropdown-selected-text" id="roleSelectedText">Software Engineering & Tech</span>
+                                            <span class="dropdown-arrow">▼</span>
+                                        </button>
+                                        <div class="custom-dropdown-menu" id="roleDropdownMenu" role="listbox">
+                                            <div class="custom-dropdown-option selected" data-value="1.2">Software Engineering & Tech</div>
+                                            <div class="custom-dropdown-option" data-value="1.0">UI/UX & Product Design</div>
+                                            <div class="custom-dropdown-option" data-value="1.3">Executive Leadership & C-Suite</div>
+                                            <div class="custom-dropdown-option" data-value="0.9">HR & Operations</div>
+                                        </div>
+                                        <input type="hidden" id="roleType" value="1.2">
+                                    </div>
+                                </div>
+
+                                <div class="calc-group">
+                                    <label for="expLevel">Experience Level (Years): <span id="expVal">5 Years</span></label>
+                                    <input type="range" id="expLevel" min="1" max="15" value="5" class="calc-slider">
+                                </div>
+                            </div>
+
+                            <div class="calc-results text-center">
+                                <div class="res-box">
+                                    <span class="res-label">Estimated Annual Salary</span>
+                                    <div class="res-value" id="salaryEstimate">$130,000</div>
+                                </div>
+                                <div class="res-box">
+                                    <span class="res-label">Average Time-to-Hire</span>
+                                    <div class="res-value highlight" id="timeEstimate">14 Days</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Editorial Photo Showcase -->
+                    <div class="story-image-wrapper" style="height: 480px;">
+                        <img src="assets/woman_purple_grid_1786479834802.jpg" alt="Practice Lead Vetting Candidate" class="story-img" style="height: 100%;">
+                        <div class="story-floating-badge">
+                            <strong>48-Hour Shortlist SLA</strong>
+                            <span style="font-size: 0.85rem; color: #CBD5E1;">Top 3 Pre-Vetted Candidates Delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: ENTERPRISE SERVICE GUARANTEES & SLA METRICS -->
+        <section class="section-padding overflow-hidden" id="guarantees">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Service Level Agreements</span>
+                    <h2 class="section-title">Built Upon Uncompromising Standards</h2>
+                    <p class="section-subtitle">Every talent partnership is protected by our transparent SLA commitments.</p>
+                </div>
+
+                <div class="feature-list-group" style="max-width: 920px; margin: 0 auto;">
+                    <!-- Guarantee 1: Dark Style -->
+                    <div class="feature-list-item dark-feature-item">
+                        <div class="feature-num">01</div>
+                        <div class="feature-text-content">
+                            <h4>48-Hour Shortlist SLA Guarantee</h4>
+                            <p>We deliver your first batch of 3 hand-picked, pre-screened candidate profiles complete with video screens within 48 hours.</p>
+                        </div>
+                    </div>
+
+                    <!-- Guarantee 2: Light Style -->
+                    <div class="feature-list-item">
+                        <div class="feature-num">02</div>
+                        <div class="feature-text-content">
+                            <h4>90-Day Free Candidate Replacement</h4>
+                            <p>If a placed candidate leaves or fails to meet performance criteria within 90 days, we replace them at zero additional cost.</p>
+                        </div>
+                    </div>
+
+                    <!-- Guarantee 3: Dark Style -->
+                    <div class="feature-list-item dark-feature-item">
+                        <div class="feature-num">03</div>
+                        <div class="feature-text-content">
+                            <h4>Pre-Screened Video & Coding Scorecards</h4>
+                            <p>Review real-world coding benchmarks, AI video interview recordings, and communication evaluations before inviting candidates.</p>
+                        </div>
+                    </div>
+
+                    <!-- Guarantee 4: Light Style -->
+                    <div class="feature-list-item">
+                        <div class="feature-num">04</div>
+                        <div class="feature-text-content">
+                            <h4>SOC2 Security & Stealth Search Protection</h4>
+                            <p>Complete background security verification, NDA enforcement, and confidential C-suite replacement protocols.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CLIENT SUCCESS CASE STUDIES & REAL RESULTS -->
+        <section class="section-padding bg-alt overflow-hidden" id="caseStudies">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Proven Impact</span>
+                    <h2 class="section-title">Client Success Stories</h2>
+                    <p class="section-subtitle">See how top engineering organizations scale with Stackly's talent engine.</p>
+                </div>
+
+                <div class="case-grid">
+                    <!-- Case Study 1 -->
+                    <div class="case-card spotlight-card">
+                        <div class="case-img-wrapper">
+                            <img src="assets/fintech_ai_team.jpg" alt="AI FinTech Case Study" class="case-img">
+                            <span class="case-badge">AI FinTech ScaleUp</span>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">14 Senior AI Engineers Hired in 21 Days</h3>
+                            <p class="case-desc">Scaled a specialized Machine Learning & Cloud Architect team to accelerate a Series-B product launch.</p>
+                            <div class="case-stat-row">
+                                <span style="font-size: 0.85rem; color: var(--text-secondary);">Retention Rate</span>
+                                <span class="case-metric">99.1%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2 -->
+                    <div class="case-card spotlight-card">
+                        <div class="case-img-wrapper">
+                            <img src="assets/exec_tech_leader.jpg" alt="Enterprise SaaS Executive Search" class="case-img">
+                            <span class="case-badge">Enterprise SaaS Leader</span>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">Confidential VP of Product Search</h3>
+                            <p class="case-desc">Executed stealth headhunting for a Fortune 500 tech firm, delivering 3 finalist candidates in 14 days.</p>
+                            <div class="case-stat-row">
+                                <span style="font-size: 0.85rem; color: var(--text-secondary);">Time-To-Hire</span>
+                                <span class="case-metric">14 Days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 3 -->
+                    <div class="case-card spotlight-card">
+                        <div class="case-img-wrapper">
+                            <img src="assets/cloud_infra_team.jpg" alt="Cloud Infrastructure RPO Case Study" class="case-img">
+                            <span class="case-badge">Cloud Infra Unicorn</span>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">Full RPO Squad Scaling 40+ Engineers</h3>
+                            <p class="case-desc">Deployed embedded talent partners across US and EU timezones to eliminate hiring bottlenecks.</p>
+                            <div class="case-stat-row">
+                                <span style="font-size: 0.85rem; color: var(--text-secondary);">Sourcing Velocity</span>
+                                <span class="case-metric">3.5x Faster</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTIVE CALL-TO-ACTION BANNER -->
+        <section class="cta-banner-section section-padding bg-dark text-white text-center">
+            <div class="container">
+                <div class="cta-box glass-card" style="padding: 3.5rem 2rem; background: rgba(255, 255, 255, 0.03);">
+                    <span class="section-badge" style="background: rgba(124, 58, 237, 0.2); color: #C4B5FD;">Transform Your Hiring</span>
+                    <h2 class="section-title text-white" style="margin-top: 0.75rem;">Ready to Scale Your Team with Elite Tech Talent?</h2>
+                    <p class="section-subtitle" style="color: #94A3B8; max-width: 620px; margin: 0 auto 2rem;">
+                        Connect with our practice leads for a confidential consultation and custom hiring pipeline strategy.
+                    </p>
+                    <div class="cta-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-primary btn-lg glow-effect">Schedule Practice Consultation</a>
+                        <a href="jobs.html" class="btn btn-outline-light btn-lg">Explore Open Jobs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION 7: SITE FOOTER (REUSED) -->
+    <footer class="site-footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-top grid-4-col">
+
+                <!-- Column 1: Brand & Social Icons -->
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">Empowering companies and extraordinary talent with modern HR recruitment & executive search solutions.</p>
+                    <div class="footer-social-mono">
+                        <a href="404.html" class="mono-icon-link" aria-label="LinkedIn">in</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Twitter X">𝕏</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="GitHub">gh</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Solutions -->
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="404.html">Executive Search</a></li>
+                        <li><a href="404.html">Contract Staffing</a></li>
+                        <li><a href="404.html">Direct Hire</a></li>
+                        <li><a href="404.html">RPO Advisory</a></li>
+                        <li><a href="404.html">Tech Sourcing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter Form -->
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p class="footer-text">Get weekly tech talent insights & market salary reports.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email" required class="newsletter-input">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <span id="newsletterError" style="color: #F43F5E; font-size: 0.75rem; display: none; margin-top: 0.25rem;">Please enter a valid email address.</span>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Security</a>
+                </div>
+                <p>© 2026 Stackly Recruitment Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
