@@ -120,7 +120,7 @@ function initScrollAnimations() {
         // Mobile View (< 768px): Alternating left & right sliding animations per card
         bentoMm.add("(max-width: 767px)", () => {
             bentoCards.forEach((card, index) => {
-                const xOffset = (index % 2 === 0) ? -75 : 75;
+                const xOffset = (index % 2 === 0) ? -30 : 30;
                 gsap.from(card, {
                     scrollTrigger: {
                         trigger: card,
@@ -175,7 +175,7 @@ function initScrollAnimations() {
         // Mobile View (< 768px): Alternating left & right sliding animations per card
         mm.add("(max-width: 767px)", () => {
             jobCards.forEach((card, index) => {
-                const xOffset = (index % 2 === 0) ? -75 : 75;
+                const xOffset = (index % 2 === 0) ? -30 : 30;
                 gsap.from(card, {
                     scrollTrigger: {
                         trigger: card,
@@ -218,7 +218,7 @@ function initScrollAnimations() {
         // Mobile View (< 768px): Alternating left & right sliding animations per card
         stepMm.add("(max-width: 767px)", () => {
             darkStepCards.forEach((card, index) => {
-                const xOffset = (index % 2 === 0) ? -75 : 75;
+                const xOffset = (index % 2 === 0) ? -30 : 30;
                 gsap.from(card, {
                     scrollTrigger: {
                         trigger: card,
@@ -284,20 +284,62 @@ function initCalculator() {
     const expVal = document.getElementById('expVal');
     const salaryEst = document.getElementById('salaryEstimate');
     const timeEst = document.getElementById('timeEstimate');
+    const customDropdown = document.getElementById('roleCustomDropdown');
+    const dropdownTrigger = document.getElementById('roleDropdownTrigger');
+    const dropdownText = document.getElementById('roleSelectedText');
+    const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+
     if (!roleType || !expLevel) return;
+
     function updateCalc() {
         const years = parseInt(expLevel.value, 10);
-        const multiplier = parseFloat(roleType.value);
+        const multiplier = parseFloat(roleType.value || 1.2);
         expVal.textContent = `${years} Year${years > 1 ? 's' : ''}`;
+
         // Base salary calculation
         const base = 75000 + (years * 11000);
         const finalSalary = Math.round(base * multiplier);
         salaryEst.textContent = `$${finalSalary.toLocaleString()}`;
+
         // Turnaround time calculation based on experience level
         const days = Math.max(7, Math.round(10 + (years * 0.8)));
         timeEst.textContent = `${days} Days`;
     }
-     roleType.addEventListener('change', updateCalc);
+
+    // Custom Dropdown Interactive Behavior
+    if (customDropdown && dropdownTrigger) {
+        dropdownTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = customDropdown.classList.contains('open');
+            customDropdown.classList.toggle('open');
+            dropdownTrigger.setAttribute('aria-expanded', !isOpen);
+        });
+
+        dropdownOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                
+                const val = option.getAttribute('data-value');
+                roleType.value = val;
+                dropdownText.textContent = option.textContent.replace('✓', '').trim();
+                
+                customDropdown.classList.remove('open');
+                dropdownTrigger.setAttribute('aria-expanded', 'false');
+                updateCalc();
+            });
+        });
+
+        // Close dropdown when clicking anywhere outside
+        document.addEventListener('click', (e) => {
+            if (!customDropdown.contains(e.target)) {
+                customDropdown.classList.remove('open');
+                dropdownTrigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
     expLevel.addEventListener('input', updateCalc);
     updateCalc();
 }
