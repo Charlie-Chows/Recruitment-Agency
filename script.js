@@ -142,19 +142,48 @@ function initScrollAnimations() {
         });
     }
 
-    // Reveal Job Cards with spring entrance
-    if (document.querySelector('.jobs-grid')) {
-        gsap.from('.job-card', {
-            scrollTrigger: {
-                trigger: '.jobs-grid',
-                start: 'top 85%'
-            },
-            y: 50,
-            scale: 0.94,
-            opacity: 0,
-            stagger: 0.15,
-            duration: 0.9,
-            ease: 'back.out(1.4)'
+    // Reveal Hot Career Job Cards with dynamic side-sliding animations
+    const jobCards = document.querySelectorAll('.job-card');
+    if (jobCards.length > 0) {
+        let mm = gsap.matchMedia();
+
+        // Mobile View (< 768px): Alternating left & right sliding animations per card
+        mm.add("(max-width: 767px)", () => {
+            jobCards.forEach((card, index) => {
+                const xOffset = (index % 2 === 0) ? -75 : 75;
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 88%',
+                    },
+                    x: xOffset,
+                    opacity: 0,
+                    duration: 0.85,
+                    ease: 'power3.out',
+                    clearProps: 'all'
+                });
+            });
+        });
+
+        // Desktop View (>= 768px): Dynamic side entrance for outer cards & center lift
+        mm.add("(min-width: 768px)", () => {
+            jobCards.forEach((card, index) => {
+                const xOffset = index === 0 ? -60 : (index === jobCards.length - 1 ? 60 : 0);
+                const yOffset = index === 1 ? 35 : 0;
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: '.jobs-grid',
+                        start: 'top 85%',
+                    },
+                    x: xOffset,
+                    y: yOffset,
+                    opacity: 0,
+                    duration: 0.85,
+                    delay: index * 0.15,
+                    ease: 'power3.out',
+                    clearProps: 'all'
+                });
+            });
         });
     }
     // Reveal Process Steps
