@@ -163,9 +163,9 @@
             localStorage.setItem('stackly_role', role);
 
             if (role === 'admin') {
-                window.location.href = 'admin.html';
+                window.location.href = 'admin.html?email=' + encodeURIComponent(email);
             } else {
-                window.location.href = 'user.html';
+                window.location.href = 'user.html?email=' + encodeURIComponent(email);
             }
         });
     </script>
