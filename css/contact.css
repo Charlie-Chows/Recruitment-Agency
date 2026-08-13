@@ -1,0 +1,350 @@
+/* ==========================================================================
+   STACKLY RECRUITMENT AGENCY - CONTACT PAGE CSS
+   ========================================================================== */
+
+/* Hero Banner */
+.contact-hero-banner {
+    padding: 5rem 0 3.5rem;
+    background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+    border-bottom: 1px solid var(--border-light);
+    text-align: center;
+}
+
+/* Global Office Hub Cards Grid */
+.office-hubs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+}
+
+.office-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.office-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.12);
+    border-color: var(--primary-purple);
+}
+
+.office-flag {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.office-city {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.office-role {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-purple);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.office-details {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.office-details a {
+    color: var(--primary-purple);
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.office-details a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Section Split Layout */
+.contact-split-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+}
+
+@media screen and (min-width: 992px) {
+    .contact-split-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+}
+
+/* Contact Form Card */
+.contact-form-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+}
+
+.form-group-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: 768px) {
+    .form-group-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-field label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: #F8FAFC;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--primary-purple);
+    background: #FFFFFF;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+/* Info Side Card */
+.info-sidebar-card {
+    background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    color: #FFFFFF;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+}
+
+.info-sidebar-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.info-sidebar-card p {
+    font-size: 0.92rem;
+    color: #94A3B8;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+}
+
+.sidebar-sla-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-sla-icon {
+    font-size: 1.25rem;
+    color: #A78BFA;
+}
+
+.sidebar-sla-text strong {
+    display: block;
+    font-size: 0.98rem;
+    color: #FFFFFF;
+    margin-bottom: 0.2rem;
+}
+
+.sidebar-sla-text span {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+
+/* Google Map Embed Showcase */
+.map-container-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    margin-top: 2.5rem;
+    position: relative;
+}
+
+.map-iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+}
+
+/* FAQ Accordion Section */
+.faq-container {
+    max-width: 900px;
+    margin: 2.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.faq-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active {
+    border-color: var(--primary-purple);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.08);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.faq-icon {
+    font-size: 1rem;
+    color: var(--primary-purple);
+    transition: transform 0.3s ease;
+    font-weight: 800;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 0.85rem;
+    margin-top: 0.85rem;
+    border-top: 1px dashed var(--border-light);
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* Section 5: Enterprise SLA Guarantees Grid */
+.sla-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1080px;
+    margin: 2.5rem auto 0;
+}
+
+.sla-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.5rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.sla-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.14);
+    border-color: var(--primary-purple);
+}
+
+.sla-num-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary-purple-light);
+    color: var(--primary-purple);
+    font-size: 1.15rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.sla-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.sla-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.sla-card.sla-accent-purple {
+    background: rgba(124, 58, 237, 0.04);
+    border-color: rgba(124, 58, 237, 0.2);
+}
+
+.sla-card.sla-accent-dark {
+    background: #090D16;
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.sla-card.sla-accent-dark .sla-card-title {
+    color: #FFFFFF;
+}
+
+.sla-card.sla-accent-dark .sla-card-desc {
+    color: #94A3B8;
+}
+
+.sla-card.sla-accent-dark .sla-num-badge {
+    background: rgba(124, 58, 237, 0.25);
+    color: #C4B5FD;
+}

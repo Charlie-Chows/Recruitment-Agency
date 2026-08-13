@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Stackly</title>
+    <title>404 - Page Not Found | Stackly Recruitment Agency</title>
     <meta name="description"
-        content="The page you are looking for does not exist or has been moved. Return to Humandeck home page.">
+        content="The page you are looking for does not exist or has been moved. Return to Stackly Recruitment Agency homepage.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,69 +15,131 @@
         rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/global.css">
 
     <!-- GSAP Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
     <style>
-        .error-page-section {
+        .error-page-wrapper {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1.25rem;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #FAFAFD 0%, #F1F5F9 100%);
+            background: radial-gradient(circle at 50% 30%, #F5F3FF 0%, #FAFAFD 60%, #EEF2FF 100%);
         }
 
-        .error-card {
-            max-width: 620px;
+        .error-card-container {
+            max-width: 680px;
             width: 100%;
-            padding: 3rem 2rem;
+            padding: 3.5rem 2.5rem;
             text-align: center;
             position: relative;
             z-index: 10;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            box-shadow: 0 25px 60px -15px rgba(124, 58, 237, 0.12);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
-        .error-card {
-            max-width: 620px;
-            width: 100%;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 10;
+        .error-card-container:hover {
+            box-shadow: 0 30px 70px -10px rgba(124, 58, 237, 0.18);
         }
 
-        .error-code {
-            font-size: clamp(5rem, 15vw, 9rem);
+        .error-logo-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .error-logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .error-logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0);
+        }
+
+        .error-code-badge {
+            display: inline-block;
+            padding: 0.4rem 1.25rem;
+            background: var(--primary-purple-light);
+            color: var(--primary-purple);
+            font-size: 0.85rem;
             font-weight: 800;
-            line-height: 1;
-            background: linear-gradient(135deg, #7C3AED, #3B82F6);
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.25rem;
+        }
+
+        .error-big-code {
+            font-size: clamp(5rem, 16vw, 9.5rem);
+            font-weight: 800;
+            line-height: 0.9;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, #3B82F6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.04em;
-            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+            margin-bottom: 1.25rem;
+            text-shadow: 0 10px 30px rgba(124, 58, 237, 0.15);
         }
 
         .error-title {
-            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
             font-weight: 800;
-            color: var(--primary);
+            color: var(--text-primary);
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
         }
 
-        .error-desc {
+        .error-subtitle {
             font-size: clamp(0.95rem, 2vw, 1.1rem);
             color: var(--text-secondary);
-            margin-bottom: 2.25rem;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 2.25rem;
+            max-width: 520px;
+            line-height: 1.7;
         }
 
-        .error-actions {
+        .error-quick-chips {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .error-chip {
+            padding: 0.5rem 1.1rem;
+            background: #F1F5F9;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            transition: all 0.25s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .error-chip:hover {
+            background: var(--primary-purple);
+            color: #FFFFFF;
+            border-color: var(--primary-purple);
+            transform: translateY(-2px);
+        }
+
+        .error-action-btns {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -85,74 +147,114 @@
             gap: 1rem;
         }
 
-        /* Animated Floating Background Bubbles */
-        .bg-bubble {
+        /* Ambient Glow Bubbles */
+        .ambient-blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(50px);
-            opacity: 0.4;
+            filter: blur(80px);
+            opacity: 0.5;
             z-index: 1;
+            animation: pulseGlow 8s infinite alternate ease-in-out;
         }
 
-        .b1 {
-            width: 300px;
-            height: 300px;
+        .blob-1 {
+            width: 380px;
+            height: 380px;
             background: #DDD6FE;
-            top: -50px;
-            left: -50px;
+            top: -100px;
+            left: -100px;
         }
 
-        .b2 {
-            width: 250px;
-            height: 250px;
+        .blob-2 {
+            width: 340px;
+            height: 340px;
             background: #BFDBFE;
-            bottom: -50px;
-            right: -50px;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 4s;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+            100% { transform: scale(1.15) translate(30px, 30px); opacity: 0.65; }
+        }
+
+        @media screen and (max-width: 576px) {
+            .error-card-container {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .error-action-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .error-action-btns .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- 404 CONTENT -->
-    <main class="error-page-section">
-        <!-- Floating background shapes -->
-        <div class="bg-bubble b1"></div>
-        <div class="bg-bubble b2"></div>
-        <div class="error-card hero-glass-card">
-            <!-- Header Brand Logo -->
-            <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
-                <img src="assets/logo_trimmed.webp" alt="Humandeck Logo" class="header-logo-img">
-            </a>
-            <div class="error-code" id="errorCode">404</div>
-            <h1 class="error-title">Oops! Page Challenge Not Found</h1>
-            <p class="error-desc">The page or resource you are looking for might have been removed, renamed, or is
-                temporarily unavailable.</p>
+    <!-- 404 PAGE WRAPPER -->
+    <main class="error-page-wrapper">
+        <!-- Ambient Glowing Background Blobs -->
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
 
-            <div class="error-actions">
-                <button class="btn btn-outline btn-lg" onclick="window.history.back()">
-                    ← Go Back
+        <div class="error-card-container">
+            <!-- Brand Logo Header -->
+            <a href="index.html" class="error-logo-link" aria-label="Return to Stackly Homepage">
+                <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="error-logo-img">
+            </a>
+
+            <div>
+                <span class="error-code-badge">HTTP 404 Error</span>
+            </div>
+
+            <div class="error-big-code" id="errorBigCode">404</div>
+
+            <h1 class="error-title">Oops! Page Or Resource Not Found</h1>
+            <p class="error-subtitle">
+                The career role, practice channel, or resource you are looking for has been moved, renamed, or is temporarily unavailable.
+            </p>
+
+            <!-- Quick Navigation Chips -->
+            <div class="error-quick-chips">
+                <a href="index.html" class="error-chip">Home</a>
+                <a href="about.html" class="error-chip">About Us</a>
+                <a href="services.html" class="error-chip">Services</a>
+                <a href="jobs.html" class="error-chip">Open Jobs</a>
+                <a href="contact.html" class="error-chip">Contact Us</a>
+            </div>
+
+            <!-- Main CTA Actions -->
+            <div class="error-action-btns">
+                <button type="button" class="btn btn-primary btn-lg" onclick="window.history.back()">
+                    ← Go Back Previous Page
                 </button>
-                <a href="index.html" class="btn btn-dark btn-lg">
-                    Back to Home
+                <a href="index.html" class="btn btn-primary btn-lg">
+                    Return To Homepage
                 </a>
             </div>
         </div>
     </main>
+
+    <!-- GSAP Side-Sliding Animations -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            gsap.from('.error-card', {
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out'
-            });
-            gsap.from('.error-code', {
-                scale: 0.7,
-                opacity: 0,
-                duration: 1,
-                delay: 0.2,
-                ease: 'back.out(1.7)'
-            });
+            if (typeof gsap !== 'undefined') {
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                tl.from('.error-logo-link', { x: -50, opacity: 0, duration: 0.6 })
+                  .from('.error-code-badge', { x: 50, opacity: 0, duration: 0.5 }, '-=0.3')
+                  .from('#errorBigCode', { scale: 0.6, opacity: 0, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.3')
+                  .from('.error-title', { x: -60, opacity: 0, duration: 0.7 }, '-=0.4')
+                  .from('.error-subtitle', { x: 60, opacity: 0, duration: 0.7 }, '-=0.5')
+                  .from('.error-quick-chips', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
+                  .from('.error-action-btns', { y: 25, opacity: 0, duration: 0.6 }, '-=0.4');
+            }
         });
     </script>
 </body>

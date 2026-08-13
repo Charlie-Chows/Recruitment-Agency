@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Stackly</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html">
+                    <img src="assets/logo_trimmed.webp" alt="Stackly Logo">
+                </a>
+                <span class="role-chip">User</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a class="nav-item active" data-target="overview">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    Overview
+                </a>
+                <a class="nav-item" data-target="applications">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Applied Jobs
+                </a>
+                <a class="nav-item" data-target="messages">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Messages
+                </a>
+                <a class="nav-item" data-target="profile">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Profile
+                </a>
+                <a class="nav-item" data-target="settings">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Settings
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="logout-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="topbar">
+                <div class="user-profile-menu">
+                    <span id="topbar-name">User</span>
+                    <div class="avatar" id="topbar-avatar">U</div>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <!-- Overview Section -->
+                <section id="overview" class="dashboard-section active">
+                    <div class="section-header">
+                        <h1 class="section-title" id="welcome-message">Hello User</h1>
+                        <p class="section-subtitle">Here is what's happening with your job search today.</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+                            <div class="stat-info">
+                                <h3>Applied Jobs</h3>
+                                <div class="stat-value">12</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background:#E0F2FE; color:#0284C7;"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+                            <div class="stat-info">
+                                <h3>Profile Views</h3>
+                                <div class="stat-value">48</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background:#DCFCE7; color:#16A34A;"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></div>
+                            <div class="stat-info">
+                                <h3>Interview Invites</h3>
+                                <div class="stat-value">3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-grid">
+                        <div class="card">
+                            <h2 class="card-title">Application Activity</h2>
+                            <div class="chart-container">
+                                <canvas id="userActivityChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h2 class="card-title">Recent Updates</h2>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px;">
+                                <li style="display: flex; gap: 12px;">
+                                    <div style="width:10px; height:10px; border-radius:50%; background:var(--accent-green); margin-top:6px;"></div>
+                                    <div>
+                                        <div style="font-weight:600; font-size:15px;">Interview Scheduled</div>
+                                        <div style="color:var(--text-secondary); font-size:13px;">Google Inc. - Tomorrow, 10:00 AM</div>
+                                    </div>
+                                </li>
+                                <li style="display: flex; gap: 12px;">
+                                    <div style="width:10px; height:10px; border-radius:50%; background:var(--primary-purple); margin-top:6px;"></div>
+                                    <div>
+                                        <div style="font-weight:600; font-size:15px;">Application Viewed</div>
+                                        <div style="color:var(--text-secondary); font-size:13px;">Meta - 2 hours ago</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Applications Section -->
+                <section id="applications" class="dashboard-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Applied Jobs</h1>
+                        <p class="section-subtitle">Track your job applications and statuses.</p>
+                    </div>
+                    <div class="card" style="padding: 0;">
+                        <div class="table-responsive">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Role</th>
+                                        <th>Company</th>
+                                        <th>Date Applied</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight:600;">Frontend Developer</td>
+                                        <td>Google Inc.</td>
+                                        <td>Aug 10, 2026</td>
+                                        <td><span class="status-badge status-active">Interviewing</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:600;">Senior UI Designer</td>
+                                        <td>Apple</td>
+                                        <td>Aug 05, 2026</td>
+                                        <td><span class="status-badge status-pending">In Review</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:600;">UX Researcher</td>
+                                        <td>Amazon</td>
+                                        <td>Jul 28, 2026</td>
+                                        <td><span class="status-badge status-closed">Closed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Messages Section -->
+                <section id="messages" class="dashboard-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Messages</h1>
+                    </div>
+                    <div class="card">
+                        <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                            <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" fill="none" stroke-width="1.5" style="margin-bottom:16px; opacity:0.5;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            <p>You have no new messages from recruiters.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="dashboard-section">
+                    <div class="section-header">
+                        <h1 class="section-title">My Profile</h1>
+                    </div>
+                    <div class="card">
+                        <p>Your profile is currently 80% complete. Add your latest resume to reach 100%.</p>
+                        <br>
+                        <button class="auth-btn" style="width:200px;">Upload Resume</button>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="dashboard-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Account Settings</h1>
+                    </div>
+                    <div class="card">
+                        <h2 class="card-title" style="border:none;">Notification Preferences</h2>
+                        <div>
+                            <label style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+                                <input type="checkbox" checked> Email me when jobs match my profile
+                            </label>
+                            <label style="display:flex; align-items:center; gap:10px;">
+                                <input type="checkbox" checked> Email me when a recruiter views my application
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load User Data
+            const username = localStorage.getItem('stackly_username') || 'User';
+            
+            document.getElementById('welcome-message').innerText = 'Hello ' + username;
+            document.getElementById('topbar-name').innerText = username;
+            document.getElementById('topbar-avatar').innerText = username.charAt(0).toUpperCase();
+
+            // Logout Logic
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                localStorage.removeItem('stackly_username');
+                localStorage.removeItem('stackly_role');
+                window.location.href = 'index.html';
+            });
+
+            // Section Toggling
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.dashboard-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Remove active from all nav items and sections
+                    navItems.forEach(n => n.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+
+                    // Add active to clicked nav item
+                    item.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = item.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // Chart Initialization (Chart.js)
+            const ctx = document.getElementById('userActivityChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [{
+                        label: 'Applications Submitted',
+                        data: [1, 2, 0, 4, 2, 1, 2],
+                        borderColor: '#7C3AED',
+                        backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, grid: { borderDash: [5, 5] } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -15,7 +15,8 @@
         rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/about.css">
 
     <!-- GSAP & ScrollTrigger Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -56,6 +57,7 @@
                 <a href="index.html" class="logo">
                     <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
                 </a>
+                <button class="drawer-close-btn" onclick="window.closeMobileMenu()" aria-label="Close menu">&times;</button>
             </div>
             <div class="mobile-nav-content">
                 <a href="index.html" class="mobile-nav-link">Home</a>
@@ -403,7 +405,8 @@
     </footer>
 
     <!-- Main JavaScript Logic -->
-    <script src="script.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/about.js"></script>
 </body>
 
 </html>

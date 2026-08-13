@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us & Global Hubs | Stackly Recruitment Agency</title>
+    <meta name="description"
+        content="Connect with Stackly's talent partners in San Francisco, London, and Singapore. Submit hiring inquiries or fast-track executive career placement.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/jobs.css">
+    <link rel="stylesheet" href="./css/contact.css">
+
+    <!-- GSAP & ScrollTrigger Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER & NAVIGATION (REUSED) -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+            </a>
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="jobs.html" class="nav-link">Jobs</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="desktop-auth-btns">
+                    <a href="login.html" class="btn btn-link login-btn">Login</a>
+                    <a href="signup.html" class="btn btn-dark signup-btn">Sign Up</a>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Full-Screen Mobile Drawer Navigation Overlay -->
+        <div class="mobile-nav-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-header">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+                </a>
+                <button class="drawer-close-btn" onclick="window.closeMobileMenu()" aria-label="Close menu">&times;</button>
+            </div>
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About Us</a>
+                <a href="services.html" class="mobile-nav-link">Services</a>
+                <a href="jobs.html" class="mobile-nav-link">Jobs</a>
+                <a href="contact.html" class="mobile-nav-link active">Contact</a>
+                <div class="mobile-actions">
+                    <a href="login.html" class="btn btn-outline" style="width:100%; text-align:center;">Login</a>
+                    <a href="signup.html" class="btn btn-dark" style="width:100%; text-align:center;">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SECTION 1: HERO BANNER & GLOBAL OFFICE HUB CARDS -->
+        <section class="contact-hero-banner overflow-hidden" id="contactHero">
+            <div class="container">
+                <span class="section-badge">Direct Executive Channels</span>
+                <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-top: 0.5rem;">
+                    Let's Build Your Next <br><span class="gradient-text">Engineering Milestone</span>
+                </h1>
+                <p class="section-subtitle" style="max-width: 680px; margin: 0.75rem auto 1.5rem;">
+                    Whether you are an enterprise scaling AI engineering teams or senior talent seeking stealth roles, our practice leads respond within 4 hours.
+                </p>
+
+                <!-- Global Office Hub Cards -->
+                <div class="office-hubs-grid">
+                    <!-- Office 1: SF HQ -->
+                    <div class="office-card">
+                        <div class="office-flag">🇺🇸</div>
+                        <h3 class="office-city">San Francisco HQ</h3>
+                        <span class="office-role">Global Executive Search</span>
+                        <div class="office-details">
+                            <p>500 Howard Street, Suite 400<br>San Francisco, CA 94105</p>
+                            <p><a href="404.html">+1 (415) 555-0192</a></p>
+                            <p><a href="404.html">sf@stacklytalent.com</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Office 2: London EMEA -->
+                    <div class="office-card">
+                        <div class="office-flag">🇬🇧</div>
+                        <h3 class="office-city">London Hub</h3>
+                        <span class="office-role">EMEA Talent Practice</span>
+                        <div class="office-details">
+                            <p>10 York Road, South Bank<br>London SE1 7ND, UK</p>
+                            <p><a href="404.html">+44 20 7946 0184</a></p>
+                            <p><a href="404.html">london@stacklytalent.com</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Office 3: Singapore APAC -->
+                    <div class="office-card">
+                        <div class="office-flag">🇸🇬</div>
+                        <h3 class="office-city">Singapore Hub</h3>
+                        <span class="office-role">APAC Expansion Practice</span>
+                        <div class="office-details">
+                            <p>1 Marina Boulevard, #28-00<br>Singapore 018989</p>
+                            <p><a href="404.html">+65 6789 0123</a></p>
+                            <p><a href="404.html">apac@stacklytalent.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: INTERACTIVE CONTACT FORM & DIRECT INQUIRY SIDEBAR -->
+        <section class="section-padding overflow-hidden" id="inquiryForm">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Get In Touch</span>
+                    <h2 class="section-title">Send a Direct Inquiry</h2>
+                    <p class="section-subtitle">Fill out the form below. Required fields are marked with an asterisk (*).</p>
+                </div>
+
+                <div class="contact-split-grid">
+                    <!-- Left Column: Interactive Contact Form -->
+                    <div class="contact-form-card">
+                        <form id="contactForm">
+                            <div class="form-group-grid">
+                                <div class="form-field">
+                                    <label for="contactFullName">Full Name *</label>
+                                    <input type="text" id="contactFullName" required class="form-input" placeholder="e.g. Sarah Jenkins">
+                                </div>
+                                <div class="form-field">
+                                    <label for="contactWorkEmail">Work Email *</label>
+                                    <input type="email" id="contactWorkEmail" required class="form-input" placeholder="e.g. sarah@company.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group-grid">
+                                <div class="form-field">
+                                    <label for="contactPhone">Phone Number *</label>
+                                    <input type="tel" id="contactPhone" required class="form-input" placeholder="e.g. +1 (555) 234-5678">
+                                </div>
+                                <div class="form-field">
+                                    <label>Inquiry Type *</label>
+                                    <!-- Custom Dropdown Widget -->
+                                    <div class="custom-dropdown" id="contactInquiryDropdown">
+                                        <button type="button" class="custom-dropdown-trigger" id="contactInquiryTrigger" aria-haspopup="listbox" aria-expanded="false">
+                                            <span class="dropdown-selected-text" id="contactInquirySelectedText">Select Inquiry Type</span>
+                                            <span class="dropdown-arrow">▼</span>
+                                        </button>
+                                        <div class="custom-dropdown-menu" id="contactInquiryMenu" role="listbox">
+                                            <div class="custom-dropdown-option" data-value="client">Hire Engineering Talent</div>
+                                            <div class="custom-dropdown-option" data-value="candidate">Executive Job Placement</div>
+                                            <div class="custom-dropdown-option" data-value="rpo">Recruitment Process Outsourcing</div>
+                                            <div class="custom-dropdown-option" data-value="partner">Partnership & Media</div>
+                                        </div>
+                                        <input type="hidden" id="contactInquirySelect" required value="">
+                                    </div>
+                                    <span id="contactInquiryError" style="color: #F43F5E; font-size: 0.8rem; display: none; margin-top: 0.25rem; font-weight: 600;">Please select an inquiry type.</span>
+                                </div>
+                            </div>
+
+                            <div class="form-field" style="margin-bottom: 1.5rem;">
+                                <label for="contactMessage">Project / Role Overview *</label>
+                                <textarea id="contactMessage" required class="form-textarea" placeholder="Tell us about your team scaling goals, headcount requirements, or target role scope..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg glow-effect" style="width: 100%;">Submit Direct Inquiry</button>
+                        </form>
+                    </div>
+
+                    <!-- Right Column: Direct Info Sidebar Card -->
+                    <div class="info-sidebar-card">
+                        <h3>Why Partner With Stackly?</h3>
+                        <p>We combine deep domain expertise in AI, Cloud, and Fintech with transparent SLA guarantees to deliver high-velocity results.</p>
+
+                        <div class="sidebar-sla-item">
+                            <span class="sidebar-sla-icon">⏱️</span>
+                            <div class="sidebar-sla-text">
+                                <strong>4-Hour Initial Response SLA</strong>
+                                <span>All executive inquiries receive immediate dedicated lead assignment.</span>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-sla-item">
+                            <span class="sidebar-sla-icon">🔒</span>
+                            <div class="sidebar-sla-text">
+                                <strong>100% Confidentiality & NDA</strong>
+                                <span>Strict stealth search protocols protect candidate & company privacy.</span>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-sla-item">
+                            <span class="sidebar-sla-icon">🌐</span>
+                            <div class="sidebar-sla-text">
+                                <strong>30+ Global Compliance Hubs</strong>
+                                <span>Full W2, 1099, and international EOR payroll support.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: GLOBAL INTERACTIVE MAPS SHOWCASE -->
+        <section class="section-padding bg-alt overflow-hidden" id="mapLocation">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Headquarters & Global Reach</span>
+                    <h2 class="section-title">San Francisco Global HQ</h2>
+                    <p class="section-subtitle">Located in the heart of San Francisco's technology & venture corridor.</p>
+                </div>
+
+                <div class="map-container-card">
+                    <iframe 
+                        class="map-iframe"
+                        src="https://maps.google.com/maps?q=500%20Howard%20Street,%20San%20Francisco,%20CA%2094105&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen=""
+                        loading="lazy"
+                        title="Stackly San Francisco HQ Location Map">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) -->
+        <section class="section-padding overflow-hidden" id="faq">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Common Questions</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about partnering with Stackly.</p>
+                </div>
+
+                <div class="faq-container">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            <span>How quickly can Stackly present pre-vetted candidate shortlists?</span>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Under our standard SLA, we deliver your first shortlist of 3 pre-screened, video-interviewed candidates within 48 hours of intake alignment.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What happens if a placed candidate leaves during their trial period?</span>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Every direct hire placement comes with our 90-Day Free Replacement Guarantee. If a candidate departs or fails to meet benchmark performance, we replace them at zero added fee.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you handle global remote hiring and international payroll compliance?</span>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. We offer end-to-end Employer of Record (EOR), international W2/1099 compliance, and background verification across 30+ countries worldwide.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do candidate confidential stealth searches work?</span>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For executive search and stealth candidates, we enforce strict NDA protocols. Profiles are shared anonymously without identifying details until formal mutual consent is established.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What fee structures do you offer for enterprise hiring?</span>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We provide flexible engagement models tailored to your scope: Success-Based Direct Hire Fee, Retained Executive Search, and Monthly Fractional RPO Advisory terms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: ENTERPRISE COMMITMENTS & GUARANTEES METRICS -->
+        <section class="section-padding bg-alt overflow-hidden" id="commitments">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Uncompromising Quality</span>
+                    <h2 class="section-title">Our SLA Commitments to You</h2>
+                    <p class="section-subtitle">Every partnership is backed by clear performance standards.</p>
+                </div>
+
+                <div class="sla-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                    <div class="sla-card sla-accent-purple">
+                        <div class="sla-num-badge">4h</div>
+                        <h3 class="sla-card-title">Response SLA</h3>
+                        <p class="sla-card-desc">Guaranteed 4-hour initial turnaround on all hiring and candidate placement requests.</p>
+                    </div>
+
+                    <div class="sla-card">
+                        <div class="sla-num-badge">90d</div>
+                        <h3 class="sla-card-title">Replacement Guarantee</h3>
+                        <p class="sla-card-desc">Complete 90-day candidate replacement protection at zero extra cost.</p>
+                    </div>
+
+                    <div class="sla-card sla-accent-dark">
+                        <div class="sla-num-badge">100%</div>
+                        <h3 class="sla-card-title">NDA Protection</h3>
+                        <p class="sla-card-desc">Confidential executive headhunting and SOC2 data security protocols.</p>
+                    </div>
+
+                    <div class="sla-card">
+                        <div class="sla-num-badge">14d</div>
+                        <h3 class="sla-card-title">Average Time-to-Offer</h3>
+                        <p class="sla-card-desc">Fast-track interview pipelines delivering offers in 14 days on average.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: CALL TO ACTION BANNER -->
+        <section class="cta-banner-section section-padding bg-dark text-white text-center">
+            <div class="container">
+                <div class="cta-box glass-card" style="padding: 3.5rem 2rem; background: rgba(255, 255, 255, 0.03);">
+                    <span class="section-badge" style="background: rgba(124, 58, 237, 0.2); color: #C4B5FD;">Ready to Scale?</span>
+                    <h2 class="section-title text-white" style="margin-top: 0.75rem;">Build Your High-Velocity Engineering Team Today</h2>
+                    <p class="section-subtitle" style="color: #94A3B8; max-width: 620px; margin: 0 auto 2rem;">
+                        Schedule an intake call with our senior practice leads or explore our specialized staffing practices.
+                    </p>
+                    <div class="cta-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="services.html" class="btn btn-primary btn-lg glow-effect">Explore Services</a>
+                        <a href="jobs.html" class="btn btn-outline-light btn-lg">Browse Open Jobs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION 7: SITE FOOTER (REUSED) -->
+    <footer class="site-footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-top grid-4-col">
+
+                <!-- Column 1: Brand & Social Icons -->
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">Empowering companies and extraordinary talent with modern HR recruitment & executive search solutions.</p>
+                    <div class="footer-social-mono">
+                        <a href="404.html" class="mono-icon-link" aria-label="LinkedIn">in</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Twitter X">𝕏</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="GitHub">gh</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Solutions -->
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="404.html">Executive Search</a></li>
+                        <li><a href="404.html">Contract Staffing</a></li>
+                        <li><a href="404.html">Direct Hire</a></li>
+                        <li><a href="404.html">RPO Advisory</a></li>
+                        <li><a href="404.html">Tech Sourcing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter Form -->
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p class="footer-text">Get weekly tech talent insights & market salary reports.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email" required class="newsletter-input">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <span id="newsletterError" style="color: #F43F5E; font-size: 0.75rem; display: none; margin-top: 0.25rem;">Please enter a valid email address.</span>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Security</a>
+                </div>
+                <p>© 2026 Stackly Recruitment Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modular JavaScript Logic -->
+    <script src="js/common.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+
+</html>

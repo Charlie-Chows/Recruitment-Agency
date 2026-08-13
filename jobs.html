@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers & Open Positions | Stackly Recruitment Agency</title>
+    <meta name="description"
+        content="Explore elite tech & executive opportunities at VC-backed startups and global leaders. Fast-track your engineering career with Stackly.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/jobs.css">
+
+    <!-- GSAP & ScrollTrigger Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- SECTION 1: HEADER & NAVIGATION (REUSED) -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+            </a>
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="jobs.html" class="nav-link active">Jobs</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="desktop-auth-btns">
+                    <a href="login.html" class="btn btn-link login-btn">Login</a>
+                    <a href="signup.html" class="btn btn-dark signup-btn">Sign Up</a>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Full-Screen Mobile Drawer Navigation Overlay -->
+        <div class="mobile-nav-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-header">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="header-logo-img">
+                </a>
+                <button class="drawer-close-btn" onclick="window.closeMobileMenu()" aria-label="Close menu">&times;</button>
+            </div>
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About Us</a>
+                <a href="services.html" class="mobile-nav-link">Services</a>
+                <a href="jobs.html" class="mobile-nav-link active">Jobs</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+                <div class="mobile-actions">
+                    <a href="login.html" class="btn btn-outline" style="width:100%; text-align:center;">Login</a>
+                    <a href="signup.html" class="btn btn-dark" style="width:100%; text-align:center;">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SECTION 1: HERO BANNER & REAL-TIME SEARCH / FILTER BAR -->
+        <section class="jobs-hero-banner overflow-hidden" id="jobsHero">
+            <div class="container">
+                <span class="section-badge">Verified Engineering & Executive Roles</span>
+                <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-top: 0.5rem;">
+                    Accelerate Your Career with <br><span class="gradient-text">Top-Tier Tech Leaders</span>
+                </h1>
+                <p class="section-subtitle" style="max-width: 680px; margin: 0.75rem auto 1.5rem;">
+                    Pre-screened opportunities at Series-A to Series-C AI startups, fintech scale-ups, and enterprise technology firms.
+                </p>
+
+                <!-- Filter & Search Widget Box -->
+                <form class="job-search-box" onsubmit="handleJobSearchSubmit(event)">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="jobSearchInput" required placeholder="Search by role title, tech stack (e.g. AI, React, Go)...">
+                    </div>
+
+                    <!-- Custom Location Dropdown -->
+                    <div class="custom-dropdown" id="jobLocationDropdown">
+                        <button type="button" class="custom-dropdown-trigger" id="jobLocationTrigger" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="dropdown-selected-text" id="jobLocationSelectedText">Select Location</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div class="custom-dropdown-menu" id="jobLocationMenu" role="listbox">
+                            <div class="custom-dropdown-option" data-value="all">All Locations</div>
+                            <div class="custom-dropdown-option" data-value="remote">US Remote</div>
+                            <div class="custom-dropdown-option" data-value="san francisco">San Francisco, CA</div>
+                            <div class="custom-dropdown-option" data-value="london">London, UK</div>
+                            <div class="custom-dropdown-option" data-value="singapore">Singapore</div>
+                        </div>
+                        <input type="hidden" id="jobLocationSelect" required value="">
+                    </div>
+
+                    <!-- Custom Category Dropdown -->
+                    <div class="custom-dropdown" id="jobCategoryDropdown">
+                        <button type="button" class="custom-dropdown-trigger" id="jobCategoryTrigger" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="dropdown-selected-text" id="jobCategorySelectedText">Select Discipline</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div class="custom-dropdown-menu" id="jobCategoryMenu" role="listbox">
+                            <div class="custom-dropdown-option" data-value="all">All Disciplines</div>
+                            <div class="custom-dropdown-option" data-value="ai">AI / Machine Learning</div>
+                            <div class="custom-dropdown-option" data-value="engineering">Software Engineering</div>
+                            <div class="custom-dropdown-option" data-value="executive">Executive Search</div>
+                            <div class="custom-dropdown-option" data-value="devops">Cloud & DevOps</div>
+                        </div>
+                        <input type="hidden" id="jobCategorySelect" required value="">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary glow-effect" style="height: 100%;">Search Roles</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECTION 2: OPEN POSITIONS LIST SHOWCASE (NO GENERIC GRID CARDS) -->
+        <section class="section-padding overflow-hidden" id="openRoles">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Live Opportunities</span>
+                    <h2 class="section-title">Featured High-Velocity Positions</h2>
+                    <p class="section-subtitle">Click "View Details" to expand scope, technical requirements, and compensation packages.</p>
+                </div>
+
+                <div class="job-list-container">
+                    <!-- Job Row 1 -->
+                    <div class="job-row-card" data-title="Principal AI / LLM Systems Architect" data-location="san francisco" data-category="ai">
+                        <div class="job-row-main">
+                            <div class="job-company-icon">AI</div>
+                            <div>
+                                <h3 class="job-info-title">Principal AI / LLM Systems Architect</h3>
+                                <div class="job-meta-chips">
+                                    <span class="job-chip chip-purple">AI / ML Practice</span>
+                                    <span class="job-chip">San Francisco, CA • Remote Option</span>
+                                    <span class="job-chip chip-green">Full-Time Direct Hire</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <div>
+                                <div class="job-salary-amount">$240k - $290k</div>
+                                <span class="job-salary-label">+ Equity & Annual Bonus</span>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm job-detail-toggle">View Details</button>
+                        </div>
+                        <!-- Detail Drawer -->
+                        <div class="job-detail-drawer">
+                            <p><strong>Role Overview:</strong> Leading LLM inference optimization, fine-tuning Llama-3 models, and architecting low-latency RAG pipelines for a Series-B AI Unicorn.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Tech Requirements:</strong> PyTorch, Python, CUDA, vLLM, TensorRT, Distributed Training, AWS/GCP.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="contact.html" class="btn btn-primary btn-sm">Apply via Fast-Track</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 2 -->
+                    <div class="job-row-card" data-title="VP of Product Engineering" data-location="remote" data-category="executive">
+                        <div class="job-row-main">
+                            <div class="job-company-icon">VP</div>
+                            <div>
+                                <h3 class="job-info-title">VP of Product Engineering</h3>
+                                <div class="job-meta-chips">
+                                    <span class="job-chip chip-purple">Executive Search</span>
+                                    <span class="job-chip">New York, NY • Stealth Venture</span>
+                                    <span class="job-chip chip-green">Confidential Search</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <div>
+                                <div class="job-salary-amount">$310k - $380k</div>
+                                <span class="job-salary-label">+ 1.5% Founding Equity</span>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm job-detail-toggle">View Details</button>
+                        </div>
+                        <!-- Detail Drawer -->
+                        <div class="job-detail-drawer">
+                            <p><strong>Role Overview:</strong> Scale an engineering organization from 25 to 80+ engineers across US and European hubs while defining core technical roadmaps.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Requirements:</strong> 10+ years engineering leadership, prior VP/Director experience at a VC-backed tech startup.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="contact.html" class="btn btn-primary btn-sm">Submit Confidential Profile</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 3 -->
+                    <div class="job-row-card" data-title="Senior Staff Full-Stack Engineer" data-location="london" data-category="engineering">
+                        <div class="job-row-main">
+                            <div class="job-company-icon">FS</div>
+                            <div>
+                                <h3 class="job-info-title">Senior Staff Full-Stack Engineer (React & Go)</h3>
+                                <div class="job-meta-chips">
+                                    <span class="job-chip chip-purple">Full-Stack Practice</span>
+                                    <span class="job-chip">London, UK • Hybrid</span>
+                                    <span class="job-chip chip-green">Full-Time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <div>
+                                <div class="job-salary-amount">£140k - £175k</div>
+                                <span class="job-salary-label">+ Equity & Private Healthcare</span>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm job-detail-toggle">View Details</button>
+                        </div>
+                        <!-- Detail Drawer -->
+                        <div class="job-detail-drawer">
+                            <p><strong>Role Overview:</strong> Architecting high-throughput financial trading web applications using React, TypeScript, GraphQL, and Golang microservices.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Tech Requirements:</strong> React 18+, Next.js, Golang, PostgreSQL, Redis, Docker, Kubernetes.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="contact.html" class="btn btn-primary btn-sm">Apply via Fast-Track</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 4 -->
+                    <div class="job-row-card" data-title="Lead Cloud Infrastructure & DevOps Architect" data-location="singapore" data-category="devops">
+                        <div class="job-row-main">
+                            <div class="job-company-icon">DO</div>
+                            <div>
+                                <h3 class="job-info-title">Lead Cloud Infrastructure & DevOps Architect</h3>
+                                <div class="job-meta-chips">
+                                    <span class="job-chip chip-purple">Cloud & DevOps</span>
+                                    <span class="job-chip">Singapore • Hybrid</span>
+                                    <span class="job-chip chip-green">Full-Time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <div>
+                                <div class="job-salary-amount">$195k - $235k</div>
+                                <span class="job-salary-label">+ Relocation Package</span>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm job-detail-toggle">View Details</button>
+                        </div>
+                        <!-- Detail Drawer -->
+                        <div class="job-detail-drawer">
+                            <p><strong>Role Overview:</strong> Leading multi-region Terraform infrastructure deployment, SOC2 compliance automation, and Zero-Trust cloud security.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Tech Requirements:</strong> AWS, Terraform, Kubernetes (EKS), Datadog, CI/CD Pipelines, Python/Go scripting.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="contact.html" class="btn btn-primary btn-sm">Apply via Fast-Track</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 5 -->
+                    <div class="job-row-card" data-title="Director of Machine Learning Research" data-location="remote" data-category="ai">
+                        <div class="job-row-main">
+                            <div class="job-company-icon">ML</div>
+                            <div>
+                                <h3 class="job-info-title">Director of Machine Learning Research</h3>
+                                <div class="job-meta-chips">
+                                    <span class="job-chip chip-purple">AI / ML Practice</span>
+                                    <span class="job-chip">Boston, MA • Remote Option</span>
+                                    <span class="job-chip chip-green">Executive Search</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <div>
+                                <div class="job-salary-amount">$280k - $350k</div>
+                                <span class="job-salary-label">+ Generous Equity Grant</span>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm job-detail-toggle">View Details</button>
+                        </div>
+                        <!-- Detail Drawer -->
+                        <div class="job-detail-drawer">
+                            <p><strong>Role Overview:</strong> Directing fundamental research in multimodal generative models, publishing papers, and transferring breakthroughs to production.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Requirements:</strong> Ph.D. in Computer Science/AI, NeurIPS/ICML publications, 6+ years managing research teams.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="contact.html" class="btn btn-primary btn-sm">Apply via Fast-Track</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 6 -->
+                    <div class="job-row-card" data-title="Senior Fractional Technical Program Manager" data-location="remote" data-category="engineering">
+                        <div class="job-row-main">
+                            <div class="job-company-icon">TPM</div>
+                            <div>
+                                <h3 class="job-info-title">Senior Fractional Technical Program Manager</h3>
+                                <div class="job-meta-chips">
+                                    <span class="job-chip chip-purple">Contract Staffing</span>
+                                    <span class="job-chip">100% US Remote</span>
+                                    <span class="job-chip chip-green">6-Month Contract</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <div>
+                                <div class="job-salary-amount">$150 - $180 / hr</div>
+                                <span class="job-salary-label">W2 or 1099 Terms</span>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm job-detail-toggle">View Details</button>
+                        </div>
+                        <!-- Detail Drawer -->
+                        <div class="job-detail-drawer">
+                            <p><strong>Role Overview:</strong> Overseeing complex cloud migration timelines and managing cross-functional technical alignment for an enterprise client.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Requirements:</strong> 8+ years TPM experience in cloud infrastructure, PMP or Agile Certified Practitioner.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="contact.html" class="btn btn-primary btn-sm">Apply via Fast-Track</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: 4-STEP CANDIDATE FAST-TRACK APPLICATION PROCESS -->
+        <section class="section-padding bg-alt overflow-hidden" id="applicationProcess">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Fast-Track Process</span>
+                    <h2 class="section-title">How Stackly Fast-Tracks Your Hire</h2>
+                    <p class="section-subtitle">Skip standard resume blackholes and get introduced directly to hiring managers.</p>
+                </div>
+
+                <div class="job-process-grid">
+                    <div class="job-process-card">
+                        <div class="process-step-badge">01</div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">1-Click Profile Submission</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Submit your LinkedIn profile or GitHub link. Zero lengthy application forms required.</p>
+                    </div>
+
+                    <div class="job-process-card">
+                        <div class="process-step-badge">02</div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">AI & Practice Vetting</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Complete a 20-minute asynchronous technical benchmark and competency screening.</p>
+                    </div>
+
+                    <div class="job-process-card">
+                        <div class="process-step-badge">03</div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Direct Lead Intro</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Connect with our senior practice lead for tailored interview coaching and salary benchmarking.</p>
+                    </div>
+
+                    <div class="job-process-card">
+                        <div class="process-step-badge">04</div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Direct Offer SLA</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Bypass 5-round interviews with fast-tracked 14-day average offer SLA turnaround.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CANDIDATE BENEFITS SPLIT SHOWCASE -->
+        <section class="section-padding overflow-hidden" id="benefits">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Why Top Engineers Choose Stackly</span>
+                    <h2 class="section-title">Career Placement Advantages</h2>
+                    <p class="section-subtitle">We represent top 1% talent with complete transparency and negotiation support.</p>
+                </div>
+
+                <div class="benefits-split-grid">
+                    <!-- Left Column: Editorial Photo Showcase -->
+                    <div class="story-image-wrapper">
+                        <img src="assets/exec_tech_leader.jpg" alt="Executive Candidate Success Story" class="story-img">
+                        <div class="story-floating-badge">
+                            <strong>100% Confidential Headhunting</strong>
+                            <span style="font-size: 0.85rem; color: #CBD5E1;">Your Privacy Is Completely Protected</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: 4 Benefit Cards in 2x2 Grid -->
+                    <div class="benefits-cards-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">💎</div>
+                            <h3 class="benefit-title">Top 1% Compensation</h3>
+                            <p class="benefit-desc">Access high-bracket equity packages, sign-on bonuses, and top-tier market compensation reports.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🌐</div>
+                            <h3 class="benefit-title">Remote & Hybrid First</h3>
+                            <p class="benefit-desc">Over 85% of our open engineering roles offer 100% remote flexibility or hybrid autonomy.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">⚡</div>
+                            <h3 class="benefit-title">14-Day Fast-Track Hiring</h3>
+                            <p class="benefit-desc">Skip redundant screening calls and get fast-tracked directly to CTOs and VP decision makers.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🔒</div>
+                            <h3 class="benefit-title">Stealth Job Search</h3>
+                            <p class="benefit-desc">Explore new executive or staff engineer roles without alerting your current employer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CANDIDATE TESTIMONIALS & PLACEMENT SHOWCASE -->
+        <section class="section-padding bg-alt overflow-hidden" id="candidateQuotes">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge">Placement Stories</span>
+                    <h2 class="section-title">What Candidates Say About Stackly</h2>
+                    <p class="section-subtitle">Real experiences from engineers placed in top-tier positions.</p>
+                </div>
+
+                <div class="about-quote-box">
+                    <blockquote>
+                        "Working with Stackly was by far the smoothest hiring experience of my career. My practice lead negotiated a $270k offer plus founding equity at an AI Unicorn, and I went from initial call to signed offer in just 11 days."
+                    </blockquote>
+                    <div class="quote-author">
+                        <img src="assets/fintech_ai_team.jpg" alt="Alex Rivera" class="quote-avatar">
+                        <div>
+                            <strong style="display: block; font-size: 1.05rem; color: #FFFFFF;">Alex Rivera</strong>
+                            <span style="font-size: 0.85rem; color: #A78BFA;">Principal AI Systems Architect • Series-B Placed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTIVE CALL-TO-ACTION BANNER -->
+        <section class="cta-banner-section section-padding bg-dark text-white text-center">
+            <div class="container">
+                <div class="cta-box glass-card" style="padding: 3.5rem 2rem; background: rgba(255, 255, 255, 0.03);">
+                    <span class="section-badge" style="background: rgba(124, 58, 237, 0.2); color: #C4B5FD;">Confidential Career Representation</span>
+                    <h2 class="section-title text-white" style="margin-top: 0.75rem;">Don't See Your Ideal Role? Let Us Headhunt For You</h2>
+                    <p class="section-subtitle" style="color: #94A3B8; max-width: 620px; margin: 0 auto 2rem;">
+                        Submit your profile confidentially. Our practice leads match senior engineering talent with unlisted stealth roles.
+                    </p>
+                    <div class="cta-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-primary btn-lg glow-effect">Submit Confidential Profile</a>
+                        <a href="services.html" class="btn btn-outline-light btn-lg">Explore Practice Areas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION 7: SITE FOOTER (REUSED) -->
+    <footer class="site-footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-top grid-4-col">
+
+                <!-- Column 1: Brand & Social Icons -->
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo_trimmed.webp" alt="Stackly Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">Empowering companies and extraordinary talent with modern HR recruitment & executive search solutions.</p>
+                    <div class="footer-social-mono">
+                        <a href="404.html" class="mono-icon-link" aria-label="LinkedIn">in</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Twitter X">𝕏</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="GitHub">gh</a>
+                        <a href="404.html" class="mono-icon-link" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Solutions -->
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="404.html">Executive Search</a></li>
+                        <li><a href="404.html">Contract Staffing</a></li>
+                        <li><a href="404.html">Direct Hire</a></li>
+                        <li><a href="404.html">RPO Advisory</a></li>
+                        <li><a href="404.html">Tech Sourcing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter Form -->
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p class="footer-text">Get weekly tech talent insights & market salary reports.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email" required class="newsletter-input">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <span id="newsletterError" style="color: #F43F5E; font-size: 0.75rem; display: none; margin-top: 0.25rem;">Please enter a valid email address.</span>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Security</a>
+                </div>
+                <p>© 2026 Stackly Recruitment Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modular JavaScript Logic -->
+    <script src="js/common.js"></script>
+    <script src="js/jobs.js"></script>
+</body>
+
+</html>
