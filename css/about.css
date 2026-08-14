@@ -49,6 +49,19 @@
     transition: transform 0.5s ease;
 }
 
+@media screen and (max-width: 768px) {
+    .story-image-wrapper {
+        height: auto !important;
+    }
+    .story-img {
+        height: auto;
+        max-height: 440px;
+        object-fit: contain;
+        object-position: center;
+        background: #F8FAFC;
+    }
+}
+
 .story-image-wrapper:hover .story-img {
     transform: scale(1.03);
 }
